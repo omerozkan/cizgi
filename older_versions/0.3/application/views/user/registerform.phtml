@@ -1,0 +1,30 @@
+<div id="loginform">
+<h1>Yeni Kullanıcı Kaydı</h1>
+	<?php if ($this->contains ( 'errors' )):?>
+	<h3>Kullanıcı kaydı oluşturulamadı!</h3>
+<ul>
+	<?php
+		foreach ( $this->errors as $error ) :
+			?>
+	<li><?php echo $error?></li>
+	<?php endforeach;?>
+		</ul>
+	 
+	<?php endif;?>
+	<p>Kayıt olmak için lütfen bilgileri giriniz</p>
+<form action="<?php
+$this->link ( 'user', 'register' )?>" method="post" accept-charset="utf-8">
+<p><label for="name">Adınız ve Soyadınız: </label> <input type="text"
+	name="name" /></p>
+<p><label for="username">Kullanıcı Adı: </label> <input type="text"
+	name="username" /></p>
+<p><label for="password">Parola: </label> <input type="password"
+	name="password" /></p>
+<p><label for="password2">Parola Tekrar: </label> <input type="password"
+	name="password2" /></p>
+<p>
+<button type="submit">Kayıt Ol</button>
+</p>
+</form>
+
+</div>
