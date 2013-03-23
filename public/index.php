@@ -13,7 +13,6 @@ $bootstrap->execute();
 
 catch(Exception $ex)
 {
-	
 	echo $ex->getMessage().'<br>';
 	echo $ex->getTraceAsString();
 }
