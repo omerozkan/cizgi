@@ -11,8 +11,8 @@ class Autoloader {
     public function __construct()
     {
         $this->specialPrefix = array(
-            'Test' => $this->getApplicationPath().'/test',
-            'Cizgi' => $this->getLibraryPath().'/cizgi',
+            'Test' => $this->getRootPath().'/test',
+            'Cizgi' => $this->getRootPath().'/library/cizgi',
         );
     }
     
@@ -24,21 +24,25 @@ class Autoloader {
         {
             return $this->getPhpFile($this->specialPrefix[$prefix], 1);
         }
-        return $this->getPhpFile("cizgi", 0);
+        else
+        {
+            return $this->getApplicationClass();
+        }
     }
     
     protected function setParsedArray($className)
     {
         $this->parsedArray = explode("_", $className);
     }
-    protected function getLibraryPath()
-    {
-        return LIBRARY_PATH;
-    }
 
     protected function getApplicationPath()
     {
         return APPLICATION_PATH;
+    }
+    
+    protected function getRootPath()
+    {
+        return ROOT_PATH;
     }
     
     protected function getFolderPath($startPoint)
@@ -57,6 +61,12 @@ class Autoloader {
     {
         $classPath = $this->getFolderPath($startPoint);
         return sprintf ("%s/%s.php", $folder, $classPath);
+    }
+    
+    protected function getApplicationClass()
+    {
+        return sprintf("%s/%s%s.php", $this->getApplicationPath(), $this->getFolderPath(0)
+                , $this->parsedArray[0]);
     }
 }
 
