@@ -15,6 +15,11 @@ class Cizgi_Autoloader {
         );
     }
     
+    /**
+     * Bir sınıfın dosyasını bulur
+     * @param string $className - Sınıf adı
+     * @return string
+     */
     public function getClassFile($className)
     {
         $this->setParsedArray($className);
@@ -28,22 +33,37 @@ class Cizgi_Autoloader {
             return $this->getApplicationClass();
         }
     }
-    
+    /**
+     * Sınıf adını parçalar
+     * @param string $className - Sınıf adı
+     */
     protected function setParsedArray($className)
     {
         $this->parsedArray = explode("_", $className);
     }
 
+    /**
+     * Uygulama dizini
+     * @return string uygulama yolu
+     */
     protected function getApplicationPath()
     {
         return APPLICATION_PATH;
     }
-    
+    /**
+     * Kök dizin
+     * @return string kök dizin
+     */
     protected function getRootPath()
     {
         return ROOT_PATH;
     }
     
+    /**
+     * Diziyi dosya yolu haline çevirir
+     * @param integer $startPoint dizinin başlayacağı değer
+     * @return string dizin yolu
+     */
     protected function getFolderPath($startPoint)
     {
         $array = $this->parsedArray;
@@ -56,12 +76,22 @@ class Cizgi_Autoloader {
         return $path.$array[$size - 1];
     }
     
-    protected function getPhpFile($folder, $startPoint)
+    /**
+     * Özel sınıfların php dosyasını dönderir
+     * @param string $directory özel dizin
+     * @param integer $startPoint parsedArray için başlangıç noktası
+     * @return string php dosya yolu
+     */
+    protected function getPhpFile($directory, $startPoint)
     {
         $classPath = $this->getFolderPath($startPoint);
-        return sprintf ("%s/%s.php", $folder, $classPath);
+        return sprintf ("%s/%s.php", $directory, $classPath);
     }
     
+    /**
+     * Uygulama sınıflarının tam yolunu bulur
+     * @return string php dosya yolu
+     */
     protected function getApplicationClass()
     {
     	if(count($this->parsedArray) == 1)
