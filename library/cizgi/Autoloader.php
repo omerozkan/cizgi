@@ -7,7 +7,6 @@
 class Cizgi_Autoloader {
     private static $parsedArray;
     private static $specialPrefix;
-    
     public function __construct()
     {
         $this->specialPrefix = array(
@@ -65,6 +64,8 @@ class Cizgi_Autoloader {
     
     protected function getApplicationClass()
     {
+    	if(count($this->parsedArray) == 1)
+    		return sprintf("%s/%s.php", $this->getApplicationPath(), $this->parsedArray[0]);
         return sprintf("%s/%s%s.php", $this->getApplicationPath(), $this->getFolderPath(0)
                 , $this->parsedArray[0]);
     }

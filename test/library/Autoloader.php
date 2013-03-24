@@ -3,7 +3,8 @@
  * @author Ömer ÖZKAN
  */
 class Test_Library_Autoloader extends PHPUnit_Framework_TestCase{
-
+	
+	private $loader, $lib, $app, $root;
     function setUp()
     {
         $this->loader = new Cizgi_Autoloader();
@@ -54,7 +55,13 @@ class Test_Library_Autoloader extends PHPUnit_Framework_TestCase{
                 $this->loader->getClassFile("Repository_User"));
         $this->assertEquals($this->app."/model/sub/UserModel.php",
                 $this->loader->getClassFile("Model_Sub_User"));
+        $this->assertEquals($this->app."/Bootstrap.php", 
+        		$this->loader->getClassFile("Bootstrap"));
+        $this->assertEquals($this->app."/Configuration.php", 
+        		$this->loader->getClassFile("Configuration"));
+        
     }
+    
 }
 
 
