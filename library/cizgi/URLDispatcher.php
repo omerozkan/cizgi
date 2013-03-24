@@ -25,6 +25,7 @@ class Cizgi_URLDispatcher
 				$this->setActionAsDefault();
 				break;
 			case 3:
+				$this->controller = $requests[1];
 				$this->action = $requests[2];
 		}
 		$this->parameters = array_slice($requests, 3);
@@ -56,6 +57,8 @@ class Cizgi_URLDispatcher
 	 */
 	public function setDefaultController($controller)
 	{
+		if(!is_string($controller))
+			throw new InvalidArgumentException("controller must be string", "", null);
 		$this->controller = $controller;	
 	}
 	/**

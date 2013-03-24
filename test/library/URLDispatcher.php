@@ -18,6 +18,7 @@ class Test_Library_URLDispatcher extends PHPUnit_Framework_TestCase {
 	function testDispatchUrlAction()
 	{
 		$this->bootstrap->dispatch("/controller/action");
+		$this->assertEquals("controller", $this->bootstrap->getController());
 		$this->assertEquals("action", $this->bootstrap->getAction());
 		$this->assertCount(0, $this->bootstrap->getParameters());
 	}
