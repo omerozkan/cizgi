@@ -9,6 +9,11 @@ class Cizgi_URLDispatcher
 	private $action;
 	private $parameters;
 	const DEFAULT_ACTION = "index";
+	
+	/**
+	 * bir Request'i controller, action ve parametrelere böler
+	 * @param string $url request
+	 */
 	public function dispatch($url = null)
 	{
 		$requests = explode("/", $url);
@@ -29,21 +34,34 @@ class Cizgi_URLDispatcher
 		$this->action = self::DEFAULT_ACTION;
 	}
 	
+	/**
+	 * @return string controller
+	 */
 	public function getController()
 	{
 		return $this->controller;
 	}
-	
+	/**
+	 * 
+	 * @return string action
+	 */
 	public function getAction()
 	{
 		return $this->action;
 	}
 	
+	/**
+	 * request içerisinde belirtilmemişse varsayılan controller değerini atar
+	 * @param string $controller controller
+	 */
 	public function setDefaultController($controller)
 	{
 		$this->controller = $controller;	
 	}
-	
+	/**
+	 * action metodları için parametreleri dönderir
+	 * @return multitype:string parametre dizisi
+	 */
 	public function getParameters()
 	{
 		return $this->parameters;
