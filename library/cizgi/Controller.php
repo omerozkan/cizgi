@@ -7,6 +7,8 @@ abstract class Cizgi_Controller
 	
 	abstract function init();
 	
+	abstract function indexAction();
+	
 	public function setView(Cizgi_View $view)
 	{
 		$this->view = $view;
@@ -25,5 +27,10 @@ abstract class Cizgi_Controller
 	public function getBootstrap()
 	{
 		return $this->bootstrap;
+	}
+	
+	public function __toString()
+	{
+		return get_class($this);
 	}
 }
