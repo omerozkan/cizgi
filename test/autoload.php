@@ -8,5 +8,7 @@ spl_autoload_register('testAutoload');
 function testAutoload($name)
 {
 	$loader = new Cizgi_Autoloader;
-	require $loader->getClassFile($name);
+	$file = $loader->getClassFile($name);
+	if(file_exists($file))
+		require $file;
 }
