@@ -4,7 +4,7 @@
  *
  * @author Ömer ÖZKAN <omer@ozkan.info>
  */
-class Autoloader {
+class Cizgi_Autoloader {
     private static $parsedArray;
     private static $specialPrefix;
     
