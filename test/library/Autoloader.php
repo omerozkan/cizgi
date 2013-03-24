@@ -1,18 +1,15 @@
 <?php
-require "Autoloader.php";
 /**
  * @author Ömer ÖZKAN
  */
-define('ROOT_PATH', "..");
-define('APPLICATION_PATH', "../application");
-class Test_Autoloader extends PHPUnit_Framework_TestCase{
+class Test_Library_Autoloader extends PHPUnit_Framework_TestCase{
 
     function setUp()
     {
-        $this->loader = new Autoloader();
-        $this->lib = "../library";
-        $this->app = "../application";
-        $this->root = "..";
+        $this->loader = new Cizgi_Autoloader();
+        $this->lib = ROOT_PATH."/library";
+        $this->app = APPLICATION_PATH;
+        $this->root = ROOT_PATH;
     }
     function testGetClassFile() {
         $this->assertEquals($this->lib."/cizgi/Bootstrap.php", $this->loader->getClassFile("Cizgi_Bootstrap"));
@@ -61,7 +58,7 @@ class Test_Autoloader extends PHPUnit_Framework_TestCase{
 }
 
 
-class Mock_Autoloader extends AutoLoader
+class Mock_Autoloader extends Cizgi_AutoLoader
 {
     function getRootPath() {
         return "test/other/path";
