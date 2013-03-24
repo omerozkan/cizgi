@@ -30,6 +30,9 @@ class Mock_Controller extends Cizgi_Controller
 	function init() {
 		
 	}
+	function indexAction() {
+	}
+
 }
 class Test_View extends Cizgi_View
 {
