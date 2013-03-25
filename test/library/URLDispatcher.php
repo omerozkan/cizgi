@@ -27,7 +27,7 @@ class Test_Library_URLDispatcher extends PHPUnit_Framework_TestCase {
 	{
 		$this->bootstrap->dispatch();
 		$this->bootstrap->setDefaultController("controller");
-		$this->assertEquals("controller", $this->bootstrap->getController());
+		$this->assertEquals("controller",$this->bootstrap->getController());
 		$this->assertEquals("index", $this->bootstrap->getAction());
 		$this->assertCount(0, $this->bootstrap->getParameters());
 	}
@@ -35,6 +35,8 @@ class Test_Library_URLDispatcher extends PHPUnit_Framework_TestCase {
 	function testDispatchUrlParameter()
 	{
 		$this->bootstrap->dispatch("/controller/action/parameter");
+		$this->assertEquals("controller", $this->bootstrap->getController());
+		$this->assertEquals("action", $this->bootstrap->getAction());
 		$parameters = $this->bootstrap->getParameters();
 		$this->assertCount(1, $parameters);
 		$this->assertEquals("parameter", $parameters[0]);

@@ -24,7 +24,7 @@ class Cizgi_URLDispatcher
 			case 1:
 				$this->setActionAsDefault();
 				break;
-			case 3:
+			default:
 				$this->controller = $requests[1];
 				$this->action = $requests[2];
 		}
