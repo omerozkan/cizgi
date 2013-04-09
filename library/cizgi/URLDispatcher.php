@@ -16,7 +16,8 @@ class Cizgi_URLDispatcher
 	 */
 	public function dispatch($url = null)
 	{
-		$requests = explode("/", $url);
+		$url = explode(".", $url);
+		$requests = explode("/", $url[0]);
 		switch (count($requests))
 		{
 			case 2:

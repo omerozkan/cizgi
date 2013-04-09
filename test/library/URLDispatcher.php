@@ -42,4 +42,14 @@ class Test_Library_URLDispatcher extends PHPUnit_Framework_TestCase {
 		$this->assertEquals("parameter", $parameters[0]);
 	}
 	
+	function testDispatchUrlExtention()
+	{
+		$this->bootstrap->dispatch("/controller/action/parameter.html");
+		$this->assertEquals("controller", $this->bootstrap->getController());
+		$this->assertEquals("action", $this->bootstrap->getAction());
+		$parameters = $this->bootstrap->getParameters();
+		$this->assertCount(1, $parameters);
+		$this->assertEquals("parameter", $parameters[0]);
+	}
+	
 }
