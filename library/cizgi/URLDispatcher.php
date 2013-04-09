@@ -31,6 +31,9 @@ class Cizgi_URLDispatcher
 		$this->parameters = array_slice($requests, 3);
 	}
 	
+	/**
+	 * Varsayılan action'ı kullanır
+	 */
 	private function setActionAsDefault() {
 		$this->action = self::DEFAULT_ACTION;
 	}
@@ -61,6 +64,7 @@ class Cizgi_URLDispatcher
 			throw new InvalidArgumentException("controller must be string", "", null);
 		$this->controller = $controller;	
 	}
+	
 	/**
 	 * action metodları için parametreleri dönderir
 	 * @return multitype:string parametre dizisi
