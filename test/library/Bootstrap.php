@@ -41,16 +41,18 @@ class Test_Library_Boostrap extends PHPUnit_Framework_TestCase
 	/**
 	 * @expectedException Cizgi_Bootstrap_Controller_Not_Found
 	 */
-	function xtestRunWithControllerAndNoDefClass()
+	function testRunWithControllerAndNoDefClass()
 	{
+		$this->bootstrap->setDeveloperMode();
 		$this->bootstrap->run("/ozkan");
 	}
 	
 	/**
 	 * @expectedException Cizgi_Bootstrap_Action_Not_Found
 	 */
-	function xtestActionNotFound()
+	function testActionNotFound()
 	{
+		$this->bootstrap->setDeveloperMode();
 		$this->bootstrap->run("/index/notfound");
 	}
 	
