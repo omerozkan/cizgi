@@ -1,5 +1,12 @@
 <?php
 class Cizgi_View {
+	
+	const PUBLIC_FOLDER = "public";
+	protected $imagesDir = "images";
+	protected $scriptsDir = "js";
+	protected $stylesDir = "css";
+	protected $defaultStyle = "style.css";
+	
 	/**
 	 * Girilen parametrelere göre bir url oluşturur
 	 * @param string $controller
@@ -20,12 +27,10 @@ class Cizgi_View {
 			{
 				$ext = $this->getApplicationDefaultExtention();
 			}
-			
 			if(!empty($ext))
 			{
 				$link .= '.'.$ext;
 			}
-			
 			return $link;
 		}
 	}
@@ -70,5 +75,54 @@ class Cizgi_View {
 	public function getApplicationDefaultExtention()
 	{
 		return Configuration::$defaultExtention;
+	}
+	
+	public function getImagesDir()
+	{
+		return $this->getApplicationUrl()."/".self::PUBLIC_FOLDER."/".$this->imagesDir;
+	}
+	
+	public function getScriptsDir()
+	{
+		return $this->getApplicationUrl()."/".self::PUBLIC_FOLDER."/".$this->scriptsDir;
+	}
+	
+	public function getStylesDir()
+	{
+		return $this->getApplicationUrl()."/".self::PUBLIC_FOLDER."/".$this->stylesDir;
+	}
+	
+	public function getStyle()
+	{
+		return $this->getApplicationUrl()."/".self::PUBLIC_FOLDER."/"
+				.$this->stylesDir."/".$this->defaultStyle;
+	}
+	
+	/**
+	 * @param string $imagesDir
+	 */
+	public function setImagesDir($imagesDir) {
+		$this->imagesDir = $imagesDir;
+	}
+	
+	/**
+	 * @param string $scriptsDir
+	 */
+	public function setScriptsDir($scriptsDir) {
+		$this->scriptsDir = $scriptsDir;
+	}
+	
+	/**
+	 * @param string $stylesDir
+	 */
+	public function setStylesDir($stylesDir) {
+		$this->stylesDir = $stylesDir;
+	}
+	
+	/**
+	 * @param string $defaultStyle
+	 */
+	public function setStyle($defaultStyle) {
+		$this->defaultStyle = $defaultStyle;
 	}
 }

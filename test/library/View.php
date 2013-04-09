@@ -33,6 +33,15 @@ class Test_Library_View extends PHPUnit_Framework_TestCase
 		$this->assertEquals($this->url."controller/index/parameter.pdf", 
 				$this->view->getLink("controller", "index", "parameter", "pdf"));
 	}
+	
+	public function testFrontEndDir()
+	{
+		$this->assertEquals($this->url."public/images", $this->view->getImagesDir());
+		$this->assertEquals($this->url."public/js", $this->view->getScriptsDir());
+		$this->assertEquals($this->url."public/css", $this->view->getStylesDir());
+		$this->assertEquals($this->url."public/css/style.css", $this->view->getStyle());
+	}
+	
 }
 
 class Test_Library_Mock_View extends Cizgi_View
