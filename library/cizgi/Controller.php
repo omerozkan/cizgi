@@ -6,7 +6,7 @@
  */
 abstract class Cizgi_Controller
 {
-	private $view;
+	protected $view;
 	private $bootstrap;
 	
 	/**

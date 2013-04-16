@@ -1,5 +1,5 @@
 <?php
-class Cizgi_View {
+class Cizgi_View extends Smarty {
 	
 	const PUBLIC_FOLDER = "public";
 	protected $imagesDir = "images";

@@ -86,6 +86,12 @@ class Test_Library_Boostrap extends PHPUnit_Framework_TestCase
 		$this->assertTrue($this->bootstrap->getController()->invokedParam);
 	}
 	
+	function testViewHTMLData()
+	{
+		$this->bootstrap->run("/index/html");
+		$this->assertEquals(Cizgi_HTML::$HTML5, 
+				$this->view->getHTMLData('doctype'));
+	}
 }
 
 class Mock_Bootstrap extends Cizgi_Bootstrap
@@ -97,7 +103,7 @@ class Mock_Bootstrap extends Cizgi_Bootstrap
 		return "error";
 	}
 	
-	protected function getView()
+	public function getView()
 	{
 		return $this->mockView;
 	}
@@ -180,6 +186,11 @@ class Controller_Index extends Cizgi_Controller
 	public function redirectparamAction($parameters)
 	{
 		$this->redirect("index", "param", array('invoked'));
+	}
+	
+	public function htmlAction()
+	{
+		$this->view->setHTMLData('doctype', Cizgi_HTML::$HTML5);
 	}
 }
 

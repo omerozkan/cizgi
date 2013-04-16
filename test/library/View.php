@@ -42,12 +42,6 @@ class Test_Library_View extends PHPUnit_Framework_TestCase
 		$this->assertNull($this->view->getHTMLData('nonexist'));
 	}
 	
-	public function testAddVariables()
-	{
-		$this->view->var = "Hello";
-		$this->assertEquals("Hello", $this->view->var);
-	}
-	 
 }
 
 class Test_Library_Mock_View extends Cizgi_View

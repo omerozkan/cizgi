@@ -155,7 +155,7 @@ abstract class Cizgi_Bootstrap
 	 * View nesnesini dönderir
 	 * @return Cizgi_View
 	 */
-	protected function getView() {
+	public function getView() {
 		return $this->view;
 	}
 	
