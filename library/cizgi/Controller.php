@@ -77,9 +77,9 @@ abstract class Cizgi_Controller
 	
 	/**
 	 * Başka bir controller ve actiona yönlendirmesini sağlar
-	 * @param unknown_type $controller
-	 * @param unknown_type $action
-	 * @param unknown_type $parameters
+	 * @param string $controller
+	 * @param string $action
+	 * @param array $parameters
 	 */
 	public function redirect($controller, $action, $parameters = null)
 	{
