@@ -5,6 +5,8 @@ class Controller_Index extends Cizgi_Controller
 	}
 
 	function indexAction() {
-		echo "Merhaba Çizgi!";
+		$this->view->assign("name", "Cizgi");
+		$this->view->setOutput('index', 'index');
+		$this->view->display($this->view->getViewFile());
 	}
 }

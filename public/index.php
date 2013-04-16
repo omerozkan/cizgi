@@ -5,6 +5,7 @@ define("LIBRARY_PATH", "../library");
 
 require_once LIBRARY_PATH.'/cizgi/autoload.php';
 
+date_default_timezone_set("Europe/Istanbul");
 
 
 try {
