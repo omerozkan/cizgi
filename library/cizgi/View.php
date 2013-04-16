@@ -4,6 +4,8 @@ class Cizgi_View extends Smarty {
 	const PUBLIC_FOLDER = "public";
 	const VIEW_FOLDER = "views";
 	const EXTENTION = "tpl";
+	const SMARTY_CACHE = 'cache';
+	const SMARTY_COMPILE = "public/out";
 	protected $imagesDir = "images";
 	protected $scriptsDir = "js";
 	protected $stylesDir = "css";
@@ -11,6 +13,15 @@ class Cizgi_View extends Smarty {
 	protected $htmlData = array();
 	protected $controller;
 	protected $action;
+	
+	
+	public function __construct()
+	{
+		parent::__construct();
+		$this->setCacheDir(ROOT_PATH.'/'.self::SMARTY_CACHE);
+		$this->setCompileDir(ROOT_PATH.'/'.self::SMARTY_COMPILE);
+	}
+	
 	/**
 	 * Girilen parametrelere göre bir url oluşturur
 	 * @param string $controller

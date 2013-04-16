@@ -48,6 +48,14 @@ class Test_Library_View extends PHPUnit_Framework_TestCase
 		$this->assertEquals(APPLICATION_PATH."/views/controller/action.tpl",
 				$this->view->getViewFile());
 	}
+	
+	public function testGetCacheDirAndCompileDir()
+	{
+		$this->assertEquals(ROOT_PATH.'/'.Cizgi_View::SMARTY_CACHE.'/', 
+				$this->view->getCacheDir());
+		$this->assertEquals(ROOT_PATH.'/'.Cizgi_View::SMARTY_COMPILE.'/', 
+				$this->view->getCompileDir());
+	}
 }
 
 class Test_Library_Mock_View extends Cizgi_View
