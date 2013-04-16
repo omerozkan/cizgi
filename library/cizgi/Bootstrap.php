@@ -56,6 +56,7 @@ abstract class Cizgi_Bootstrap
 		$this->initController($controller);
 		$this->initAction($action);
 		$this->invokeActionMethod($parameters);
+		$this->view->setOutput($action, $controller);
 	}
 	
 	/**

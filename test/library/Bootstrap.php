@@ -92,6 +92,13 @@ class Test_Library_Boostrap extends PHPUnit_Framework_TestCase
 		$this->assertEquals(Cizgi_HTML::$HTML5, 
 				$this->view->getHTMLData('doctype'));
 	}
+	
+	function testViewGetViewFile()
+	{
+		$this->bootstrap->run("/controller/action");
+		$this->assertEquals(APPLICATION_PATH."/views/controller/action.tpl",
+				$this->view->getViewFile());
+	}
 }
 
 class Mock_Bootstrap extends Cizgi_Bootstrap
