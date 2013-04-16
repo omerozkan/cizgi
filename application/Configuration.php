@@ -1,7 +1,7 @@
 <?php
 
-class Application_Configuration {
-        static $hostname = "localhost";
+class Configuration {
+    static $hostname = "localhost";
 	static $dbUser = "root";
 	static $dbPassword = "";
 	static $db = "none";
