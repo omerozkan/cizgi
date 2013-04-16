@@ -7,29 +7,17 @@ class Test_Library_View extends PHPUnit_Framework_TestCase
 		$this->view = new Test_Library_Mock_View();
 		$this->url = "http://localhost/cizgi/";
 	}
-	public function testGetLinkRegular()
+	public function testGetLink()
 	{
 		$this->assertEquals($this->url."omer/ozkan", 
 				$this->view->getLink("omer", "ozkan"));
-	}
-	
-	public function testGetLinkWithoutController()
-	{
 		$this->assertEquals($this->url, 
 				$this->view->getLink());
-	}
-	
-	public function testGetLinkWithParameters()
-	{
 		$this->assertEquals($this->url."controller/index/parameter1",
 				$this->view->getLink("controller", "index", "parameter1"));
 		
 		$this->assertEquals($this->url."controller/index/parameter1/parameter2",
 				$this->view->getLink("controller", "index", array("parameter1", "parameter2")));
-	}
-	
-	public function testGetLinkWithExtention()
-	{
 		$this->assertEquals($this->url."controller/index/parameter.pdf", 
 				$this->view->getLink("controller", "index", "parameter", "pdf"));
 	}
@@ -42,6 +30,24 @@ class Test_Library_View extends PHPUnit_Framework_TestCase
 		$this->assertEquals($this->url."public/css/style.css", $this->view->getStyle());
 	}
 	
+	public function testHTMLData()
+	{
+		$this->view->setHTMLData('doctype', Cizgi_HTML::$HTML5);
+		$this->assertEquals(Cizgi_HTML::$HTML5, $this->view->getHTMLData('doctype'));
+		
+	}
+	
+	public function testHTMLDataWithNonExistKey()
+	{
+		$this->assertNull($this->view->getHTMLData('nonexist'));
+	}
+	
+	public function testAddVariables()
+	{
+		$this->view->var = "Hello";
+		$this->assertEquals("Hello", $this->view->var);
+	}
+	 
 }
 
 class Test_Library_Mock_View extends Cizgi_View

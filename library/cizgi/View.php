@@ -6,7 +6,7 @@ class Cizgi_View {
 	protected $scriptsDir = "js";
 	protected $stylesDir = "css";
 	protected $defaultStyle = "style.css";
-	
+	protected $htmlData = array();
 	/**
 	 * Girilen parametrelere göre bir url oluşturur
 	 * @param string $controller
@@ -124,5 +124,18 @@ class Cizgi_View {
 	 */
 	public function setStyle($defaultStyle) {
 		$this->defaultStyle = $defaultStyle;
+	}
+	
+	public function getHTMLData($key = null)
+	{
+		if(!array_key_exists($key, $this->htmlData)){
+			return null;
+		}
+		return $this->htmlData[$key];
+	}
+	
+	public function setHTMLData($key, $value)
+	{
+		$this->htmlData[$key] = $value;
 	}
 }
