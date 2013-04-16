@@ -2,11 +2,15 @@
 class Cizgi_View extends Smarty {
 	
 	const PUBLIC_FOLDER = "public";
+	const VIEW_FOLDER = "views";
+	const EXTENTION = "tpl";
 	protected $imagesDir = "images";
 	protected $scriptsDir = "js";
 	protected $stylesDir = "css";
 	protected $defaultStyle = "style.css";
 	protected $htmlData = array();
+	protected $controller;
+	protected $action;
 	/**
 	 * Girilen parametrelere göre bir url oluşturur
 	 * @param string $controller
@@ -137,5 +141,20 @@ class Cizgi_View extends Smarty {
 	public function setHTMLData($key, $value)
 	{
 		$this->htmlData[$key] = $value;
+	}
+	
+	public function setOutput($action, $controller = null)
+	{
+		$this->action = $action;
+		if(!is_null($controller))
+		{
+			$this->controller = $controller;
+		}
+	}
+	
+	public function getViewFile()
+	{
+		return sprintf("%s/%s/%s/%s.%s", APPLICATION_PATH, self::VIEW_FOLDER, 
+				$this->controller, $this->action, self::EXTENTION);
 	}
 }

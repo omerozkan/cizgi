@@ -42,6 +42,12 @@ class Test_Library_View extends PHPUnit_Framework_TestCase
 		$this->assertNull($this->view->getHTMLData('nonexist'));
 	}
 	
+	public function testGetControllerTplFile()
+	{
+		$this->view->setOutput('action', 'controller');
+		$this->assertEquals(APPLICATION_PATH."/views/controller/action.tpl",
+				$this->view->getViewFile());
+	}
 }
 
 class Test_Library_Mock_View extends Cizgi_View
