@@ -12,6 +12,7 @@ class Cizgi_Autoloader {
         $this->specialPrefix = array(
             'Test' => $this->getRootPath().'/test',
             'Cizgi' => $this->getRootPath().'/library/cizgi',
+        	'Smarty' => $this->getRootPath().'/library/smarty',
         );
     }
     

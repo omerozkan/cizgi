@@ -62,6 +62,12 @@ class Test_Library_Autoloader extends PHPUnit_Framework_TestCase{
         
     }
     
+    function testSmartyFile()
+    {
+    	$this->assertEquals($this->root."/library/smarty/Smarty.php",
+    			$this->loader->getClassFile("Smarty"));
+    }
+    
 }
 
 
