@@ -6,7 +6,10 @@ class Controller_Index extends Cizgi_Controller
 
 	function indexAction() {
 		$this->view->assign("name", "Cizgi");
-		$this->view->setOutput('index', 'index');
-		$this->view->display($this->view->getViewFile());
+	}
+	
+	function secondAction()
+	{
+		$this->view->assign("message", "Second action is working now");
 	}
 }
