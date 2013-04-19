@@ -19,10 +19,10 @@ abstract class Cizgi_Bootstrap
 	 * 
 	 * @param Cizgi_URLDispatcher gelen isteği ayrıştırması için gerekli nesne
 	 */
-	function  __construct(Cizgi_URLDispatcher $urlDispatcher)
+	function  __construct(Cizgi_URLDispatcher $urlDispatcher, Cizgi_View $view)
 	{
 		$this->urlDispatcher = $urlDispatcher;
-		$this->view = new Cizgi_View();
+		$this->view = $view;
 	}
 	
 	/**
@@ -56,7 +56,7 @@ abstract class Cizgi_Bootstrap
 		$this->initController($controller);
 		$this->initAction($action);
 		$this->invokeActionMethod($parameters);
-		$this->view->setOutput($action, $controller);
+		$this->renderView();
 	}
 	
 	/**
@@ -108,6 +108,13 @@ abstract class Cizgi_Bootstrap
 		
 		$this->checkMethod($methodName);
 		$this->action =  $methodName;
+	}
+	
+	private function renderView()
+	{
+		$this->view->setOutput($this->urlDispatcher->getAction(),
+				$this->urlDispatcher->getController());
+		$this->view->render();
 	}
 	
 	/**

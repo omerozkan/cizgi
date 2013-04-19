@@ -15,7 +15,7 @@ class Test_Library_Boostrap extends PHPUnit_Framework_TestCase
 	{
 		$this->urlDispatcher = new Cizgi_URLDispatcher();
 		$this->view = new Mock_View();
-		$this->bootstrap = new Mock_Bootstrap($this->urlDispatcher);
+		$this->bootstrap = new Mock_Bootstrap($this->urlDispatcher, $this->view);
 		$this->bootstrap->mockView = $this->view;
 		$this->defaultController = new Controller_Mock($this->bootstrap, $this->view);
 		$this->indexController = new Controller_Index($this->bootstrap, $this->view);
@@ -95,9 +95,16 @@ class Test_Library_Boostrap extends PHPUnit_Framework_TestCase
 	
 	function testViewGetViewFile()
 	{
-		$this->bootstrap->run("/controller/action");
-		$this->assertEquals(APPLICATION_PATH."/views/controller/action.tpl",
+		$this->bootstrap->run("/index/html");
+		$this->assertEquals(APPLICATION_PATH."/views/index/html.phtml",
 				$this->view->getViewFile());
+	}
+	
+	function testViewRender()
+	{
+		$this->bootstrap->run("/controller/action");
+		$this->assertTrue($this->view->rendered);
+		
 	}
 }
 
@@ -203,4 +210,9 @@ class Controller_Index extends Cizgi_Controller
 
 class Mock_View extends Cizgi_View
 {
+	public $rendered = false;
+	function render()
+	{
+		$this->rendered = true;
+	}
 }
