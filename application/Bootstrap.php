@@ -5,7 +5,8 @@ class Bootstrap extends Cizgi_Bootstrap
 	{
 		$urlDispatcher = new Cizgi_URLDispatcher();
 		$urlDispatcher->setDefaultController(Configuration::$defaultController);
-		parent::__construct($urlDispatcher);
+		$view = new Cizgi_View();
+		parent::__construct($urlDispatcher, $view);
 		$this->setDeveloperMode(true);
 	}
 }
