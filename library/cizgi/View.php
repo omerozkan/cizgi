@@ -3,9 +3,9 @@ class Cizgi_View extends Smarty {
 	
 	const PUBLIC_FOLDER = "public";
 	const VIEW_FOLDER = "views";
-	const EXTENTION = "tpl";
+	const EXTENTION = "phtml";
 	const SMARTY_CACHE = 'cache';
-	const SMARTY_COMPILE = "public/out";
+	const SMARTY_COMPILE = "cache";
 	protected $imagesDir = "images";
 	protected $scriptsDir = "js";
 	protected $stylesDir = "css";
@@ -19,7 +19,7 @@ class Cizgi_View extends Smarty {
 	{
 		parent::__construct();
 		$this->setCacheDir(ROOT_PATH.'/'.self::SMARTY_CACHE);
-		$this->setCompileDir(ROOT_PATH.'/'.self::SMARTY_COMPILE);
+		$this->setCompileDir(ROOT_PATH.'/'.self::SMARTY_CACHE);
 	}
 	
 	/**
@@ -167,5 +167,10 @@ class Cizgi_View extends Smarty {
 	{
 		return sprintf("%s/%s/%s/%s.%s", APPLICATION_PATH, self::VIEW_FOLDER, 
 				$this->controller, $this->action, self::EXTENTION);
+	}
+	
+	public function render()
+	{
+		$this->display($this->getViewFile());
 	}
 }

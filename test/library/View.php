@@ -45,7 +45,7 @@ class Test_Library_View extends PHPUnit_Framework_TestCase
 	public function testGetControllerTplFile()
 	{
 		$this->view->setOutput('action', 'controller');
-		$this->assertEquals(APPLICATION_PATH."/views/controller/action.tpl",
+		$this->assertEquals(APPLICATION_PATH."/views/controller/action.".Cizgi_View::EXTENTION,
 				$this->view->getViewFile());
 	}
 	
@@ -56,10 +56,19 @@ class Test_Library_View extends PHPUnit_Framework_TestCase
 		$this->assertEquals(ROOT_PATH.'/'.Cizgi_View::SMARTY_COMPILE.'/', 
 				$this->view->getCompileDir());
 	}
+	
+	public function testRender()
+	{
+		$this->view->setOutput('action', 'controller');
+		$this->view->render();
+		$this->assertTrue($this->view->rendered);	
+	}
 }
 
 class Test_Library_Mock_View extends Cizgi_View
 {
+	public $rendered = false;
+	
 	function getApplicationUrl()
 	{
 		return "http://localhost/cizgi";
@@ -68,5 +77,11 @@ class Test_Library_Mock_View extends Cizgi_View
 	function getApplicationDefaultExtention()
 	{
 		return "";
+	}
+	
+	function display($fileName)
+	{
+		if($fileName == APPLICATION_PATH."/views/controller/action.".Cizgi_View::EXTENTION)
+			$this->rendered = true;
 	}
 }
