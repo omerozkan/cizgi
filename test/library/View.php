@@ -57,17 +57,85 @@ class Test_Library_View extends PHPUnit_Framework_TestCase
 				$this->view->getCompileDir());
 	}
 	
-	public function testRender()
+	public function testRenderView()
 	{
 		$this->view->setOutput('action', 'controller');
-		$this->view->render();
+		$this->view->renderView();
 		$this->assertTrue($this->view->rendered);	
 	}
+	
+	public function testTemplateDir()
+	{
+		$dir = $this->view->getTemplateDir();
+		$this->assertEquals(APPLICATION_PATH.'/layouts/',$dir[0]);
+	}
+	
+	public function testLayout()
+	{
+		$this->view->setLayout("index");
+		$this->assertEquals('index.phtml', 
+				$this->view->getLayout());
+		
+	}
+	
+	public function testLoadLayoutEnable()
+	{
+		$this->view->setLayout("index");
+		$this->view->enableLayout();
+		$this->view->render();
+		$this->assertTrue($this->view->layoutLoaded);
+	}
+	
+	public function testLoadLayoutDisable()
+	{
+		$this->view->setOutput('action', 'controller');
+		$this->view->setLayout("index");
+		$this->view->enableLayout();
+		$this->view->disableLayout();
+		$this->view->render();
+		$this->assertFalse($this->view->layoutLoaded);
+		$this->assertTrue($this->view->rendered);
+	}
+	
+	
+	public function testAssign()
+	{
+		$this->view->var = 'testerValue';
+		$this->assertTrue($this->view->assigned);
+	}
+	
+	/**
+	 * @expectedException Cizgi_View_IllegalVariableException
+	 */
+	public function testAssignHTMLIllegal()
+	{
+		$this->view->html = 'Something';
+	}
+	
+	/**
+	 * @expectedException Cizgi_View_IllegalVariableException
+	 */
+	public function testAssignCizgiIllegal()
+	{
+		$this->view->cizgi = 'Something';
+	}
+	
+	public function testInitHTML()
+	{
+		$this->view->setHTMLData('title', 'test');
+		$this->view->render();
+		$html = $this->view->getVariable('html')->value;
+		$this->assertEquals('test', $html['title']);
+	}
+	
 }
 
 class Test_Library_Mock_View extends Cizgi_View
 {
 	public $rendered = false;
+	public $layoutLoaded = false;
+	public $assigned = false;
+	public $htmlInitialized = false;
 	
 	function getApplicationUrl()
 	{
@@ -83,5 +151,20 @@ class Test_Library_Mock_View extends Cizgi_View
 	{
 		if($fileName == APPLICATION_PATH."/views/controller/action.".Cizgi_View::EXTENTION)
 			$this->rendered = true;
+		if($fileName == 'index.phtml')
+			$this->layoutLoaded = true;
+	}
+	
+	function assign($tpl_var, $value)
+	{
+		parent::assign($tpl_var, $value);
+		if($value == 'testerValue' && $tpl_var == 'var')
+		{
+			$this->assigned = true;
+		}
+		if($value == 'html')
+		{
+			$this->htmlInitialized = true;
+		}
 	}
 }

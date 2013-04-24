@@ -3,9 +3,11 @@ class Cizgi_View extends Smarty {
 	
 	const PUBLIC_FOLDER = "public";
 	const VIEW_FOLDER = "views";
+	const LAYOUT_FOLDER = "layouts";
 	const EXTENTION = "phtml";
 	const SMARTY_CACHE = 'cache';
 	const SMARTY_COMPILE = "cache";
+	
 	protected $imagesDir = "images";
 	protected $scriptsDir = "js";
 	protected $stylesDir = "css";
@@ -13,13 +15,16 @@ class Cizgi_View extends Smarty {
 	protected $htmlData = array();
 	protected $controller;
 	protected $action;
-	
+	protected $layoutFile;
+	protected $layoutEnabled;
+	private $illegalVariables = array('html', 'cizgi');
 	
 	public function __construct()
 	{
 		parent::__construct();
 		$this->setCacheDir(ROOT_PATH.'/'.self::SMARTY_CACHE);
 		$this->setCompileDir(ROOT_PATH.'/'.self::SMARTY_CACHE);
+		$this->setTemplateDir(APPLICATION_PATH.'/'.self::LAYOUT_FOLDER);
 	}
 	
 	/**
@@ -27,7 +32,7 @@ class Cizgi_View extends Smarty {
 	 * @param string $controller
 	 * @param string $action
 	 * @param string or array $parameters
-	 * @param string $ext
+	 * @param string $ext uzantı
 	 * @return string
 	 */
 	public function getLink($controller = null, $action = null, $parameters = null, $ext = null) {
@@ -169,8 +174,64 @@ class Cizgi_View extends Smarty {
 				$this->controller, $this->action, self::EXTENTION);
 	}
 	
-	public function render()
+	public function renderView()
 	{
 		$this->display($this->getViewFile());
 	}
+	
+	
+	public function render()
+	{
+		$this->initSpecialVariables ();
+		if($this->layoutEnabled)
+			$this->display($this->getLayout());
+		else
+			$this->renderView();
+	}
+	
+	private function initSpecialVariables() {
+		parent::assign('html', $this->htmlData);
+	}
+
+	
+	public function setLayout($layout)
+	{
+		$this->layoutFile = $layout.'.'.self::EXTENTION;
+	}
+	
+	protected function getLayout()
+	{
+		return $this->layoutFile;
+	}
+	
+	public function enableLayout()
+	{
+		$this->layoutEnabled = true;
+	}
+	
+	public function disableLayout()
+	{
+		$this->layoutEnabled = false;	
+	}
+	
+	public function __set($name, $value)
+	{
+		$this->assign($name, $value);
+	}
+	
+	public function assign($tpl_var, $value = null, $nocache = false)
+	{
+		$this->checkVariableName ( $tpl_var );
+		parent::assign($tpl_var, $value, $nocache);
+	}
+	
+	private function checkVariableName($name) {
+		if(in_array($name, $this->illegalVariables))
+		{
+			throw new Cizgi_View_IllegalVariableException($name.' is not allowed for template files');
+		}
+	 }
+
 }
+
+class Cizgi_View_IllegalVariableException extends RuntimeException {}
