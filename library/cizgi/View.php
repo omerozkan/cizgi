@@ -1,13 +1,12 @@
 <?php
 class Cizgi_View extends Smarty {
 	
-	const PUBLIC_FOLDER = "public";
-	const VIEW_FOLDER = "views";
-	const LAYOUT_FOLDER = "layouts";
-	const EXTENTION = "phtml";
+	const GET_PUBLIC_DIR = "public";
+	const VIEW_DIR = "views";
+	const LAYOUT_DIR = "layouts";
 	const SMARTY_CACHE = 'cache';
 	const SMARTY_COMPILE = "cache";
-	
+	const VIEW_TEMPLATE_PREFIX = "[v]";
 	protected $imagesDir = "images";
 	protected $scriptsDir = "js";
 	protected $stylesDir = "css";
@@ -19,12 +18,24 @@ class Cizgi_View extends Smarty {
 	protected $layoutEnabled;
 	private $illegalVariables = array('html', 'cizgi');
 	
+	static function GET_VIEW_EXTENTION()
+	{
+		return Configuration::$viewDefaultExtention;
+	}
+	
+	static function GET_PUBLIC_DIR()
+	{
+		return Configuration::$publicDirectory;
+	}
+	
 	public function __construct()
 	{
 		parent::__construct();
 		$this->setCacheDir(ROOT_PATH.'/'.self::SMARTY_CACHE);
 		$this->setCompileDir(ROOT_PATH.'/'.self::SMARTY_CACHE);
-		$this->setTemplateDir(APPLICATION_PATH.'/'.self::LAYOUT_FOLDER);
+		$this->setTemplateDir(APPLICATION_PATH.'/'.self::LAYOUT_DIR);
+		$this->layoutEnabled = Configuration::$viewLayout == 1;
+		$this->setLayout(Configuration::$viewDefaultLayout);
 	}
 	
 	/**
@@ -99,22 +110,22 @@ class Cizgi_View extends Smarty {
 	
 	public function getImagesDir()
 	{
-		return $this->getApplicationUrl()."/".self::PUBLIC_FOLDER."/".$this->imagesDir;
+		return $this->getApplicationUrl()."/".self::GET_PUBLIC_DIR()."/".$this->imagesDir;
 	}
 	
 	public function getScriptsDir()
 	{
-		return $this->getApplicationUrl()."/".self::PUBLIC_FOLDER."/".$this->scriptsDir;
+		return $this->getApplicationUrl()."/".self::GET_PUBLIC_DIR()."/".$this->scriptsDir;
 	}
 	
 	public function getStylesDir()
 	{
-		return $this->getApplicationUrl()."/".self::PUBLIC_FOLDER."/".$this->stylesDir;
+		return $this->getApplicationUrl()."/".self::GET_PUBLIC_DIR()."/".$this->stylesDir;
 	}
 	
 	public function getStyle()
 	{
-		return $this->getApplicationUrl()."/".self::PUBLIC_FOLDER."/"
+		return $this->getApplicationUrl()."/".self::GET_PUBLIC_DIR()."/"
 				.$this->stylesDir."/".$this->defaultStyle;
 	}
 	
@@ -170,21 +181,34 @@ class Cizgi_View extends Smarty {
 	
 	public function getViewFile()
 	{
-		return sprintf("%s/%s/%s/%s.%s", APPLICATION_PATH, self::VIEW_FOLDER, 
-				$this->controller, $this->action, self::EXTENTION);
+		//return sprintf("%s/%s/%s/%s.%s", APPLICATION_PATH, self::VIEW_DIR, 
+		//		$this->controller, $this->action, self::GET_VIEW_EXTENTION());
+		return sprintf("%s.%s", $this->action, self::GET_VIEW_EXTENTION());
+		
+	}
+	
+	public function getViewDir()
+	{
+		return sprintf("%s/%s/%s", APPLICATION_PATH, self::VIEW_DIR,
+						$this->controller);
 	}
 	
 	public function renderView()
 	{
-		$this->display($this->getViewFile());
+		$this->addTemplateDir($this->getViewDir(), 'v');
+	    $this->display(self::VIEW_TEMPLATE_PREFIX.$this->getViewFile());
 	}
 	
+	public function renderLayout()
+	{
+		$this->display($this->getLayout());
+	}
 	
 	public function render()
 	{
 		$this->initSpecialVariables ();
 		if($this->layoutEnabled)
-			$this->display($this->getLayout());
+			$this->renderLayout();
 		else
 			$this->renderView();
 	}
@@ -196,7 +220,7 @@ class Cizgi_View extends Smarty {
 	
 	public function setLayout($layout)
 	{
-		$this->layoutFile = $layout.'.'.self::EXTENTION;
+		$this->layoutFile = $layout.'.'.self::GET_VIEW_EXTENTION();
 	}
 	
 	protected function getLayout()
@@ -230,7 +254,7 @@ class Cizgi_View extends Smarty {
 		{
 			throw new Cizgi_View_IllegalVariableException($name.' is not allowed for template files');
 		}
-	 }
+	}
 
 }
 

@@ -45,7 +45,9 @@ class Test_Library_View extends PHPUnit_Framework_TestCase
 	public function testGetControllerTplFile()
 	{
 		$this->view->setOutput('action', 'controller');
-		$this->assertEquals(APPLICATION_PATH."/views/controller/action.".Cizgi_View::EXTENTION,
+		$this->assertEquals(APPLICATION_PATH."/views/controller",
+				$this->view->getViewDir());
+		$this->assertEquals('action.'.Cizgi_View::GET_VIEW_EXTENTION(),
 				$this->view->getViewFile());
 	}
 	
@@ -67,7 +69,7 @@ class Test_Library_View extends PHPUnit_Framework_TestCase
 	public function testTemplateDir()
 	{
 		$dir = $this->view->getTemplateDir();
-		$this->assertEquals(APPLICATION_PATH.'/layouts/',$dir[0]);
+		$this->assertEquals(APPLICATION_PATH.'/layouts/', $dir[0]);
 	}
 	
 	public function testLayout()
@@ -149,7 +151,7 @@ class Test_Library_Mock_View extends Cizgi_View
 	
 	function display($fileName)
 	{
-		if($fileName == APPLICATION_PATH."/views/controller/action.".Cizgi_View::EXTENTION)
+		if($fileName == "[v]action.".Cizgi_View::GET_VIEW_EXTENTION())
 			$this->rendered = true;
 		if($fileName == 'index.phtml')
 			$this->layoutLoaded = true;
