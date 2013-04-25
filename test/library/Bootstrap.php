@@ -26,15 +26,15 @@ class Test_Library_Boostrap extends PHPUnit_Framework_TestCase
 	{
 		$bootstrap = $this->bootstrap;
 		$bootstrap->run();
-		$this->assertEquals($this->defaultController, $bootstrap->getController());
+		$this->assertTrue($this->defaultController->equals($bootstrap->getController()));
 		$this->assertEquals("indexAction", $bootstrap->getAction());
 		
 		$this->bootstrap->run("/index/another");
-		$this->assertEquals($this->indexController, $bootstrap->getController());
+		$this->assertTrue($this->indexController->equals($bootstrap->getController()));
 		$this->assertEquals("anotherAction", $bootstrap->getAction());
 		
 		$this->bootstrap->run("/index");
-		$this->assertEquals($this->indexController, $bootstrap->getController());
+		$this->assertTrue($this->indexController->equals($bootstrap->getController()) );
 		$this->assertEquals("indexAction", $bootstrap->getAction());
 	}
 	
@@ -96,7 +96,9 @@ class Test_Library_Boostrap extends PHPUnit_Framework_TestCase
 	function testViewGetViewFile()
 	{
 		$this->bootstrap->run("/index/html");
-		$this->assertEquals(APPLICATION_PATH."/views/index/html.phtml",
+		$this->assertEquals(APPLICATION_PATH."/views/index",
+				$this->view->getViewDir());
+		$this->assertEquals("html.phtml",
 				$this->view->getViewFile());
 	}
 	
@@ -105,6 +107,12 @@ class Test_Library_Boostrap extends PHPUnit_Framework_TestCase
 		$this->bootstrap->run("/controller/action");
 		$this->assertTrue($this->view->rendered);
 		
+	}
+	
+	function testInit()
+	{
+		$this->bootstrap->run("/index");
+		$this->assertTrue($this->bootstrap->getController()->initTest);
 	}
 }
 
@@ -161,8 +169,10 @@ class Controller_Index extends Cizgi_Controller
 {
 	public $invoked = false;
 	public $invokedParam = false;
+	public $initTest = false;
 	
 	function init() {
+		$this->initTest = true;
 	}
 	
 	public function indexAction()

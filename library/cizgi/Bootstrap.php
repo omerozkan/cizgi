@@ -89,6 +89,7 @@ abstract class Cizgi_Bootstrap
 		$className = $this->getControllerClassName($controller);
 		$this->checkClass ( $className );
 		$this->controller = new $className($this, $this->getView());
+		$this->controller->init();
 	}
 
 	/**
