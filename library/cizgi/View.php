@@ -1,6 +1,5 @@
 <?php
 class Cizgi_View extends Smarty {
-	
 	const GET_PUBLIC_DIR = "public";
 	const VIEW_DIR = "views";
 	const LAYOUT_DIR = "layouts";
@@ -11,39 +10,52 @@ class Cizgi_View extends Smarty {
 	protected $scriptsDir = "js";
 	protected $stylesDir = "css";
 	protected $defaultStyle = "style.css";
-	protected $htmlData = array();
+	protected $htmlData = array ();
 	protected $controller;
 	protected $action;
 	protected $layoutFile;
 	protected $layoutEnabled;
-	private $illegalVariables = array('html', 'cizgi');
-	
-	static function GET_VIEW_EXTENTION()
-	{
+	private $illegalVariables = array (
+			'html',
+			'cizgi' 
+	);
+	static function GET_VIEW_EXTENTION() {
 		return Configuration::$viewDefaultExtention;
 	}
-	
-	static function GET_PUBLIC_DIR()
-	{
+	static function GET_PUBLIC_DIR() {
 		return Configuration::$publicDirectory;
 	}
-	
-	public function __construct()
-	{
-		parent::__construct();
-		$this->setCacheDir(ROOT_PATH.'/'.self::SMARTY_CACHE);
-		$this->setCompileDir(ROOT_PATH.'/'.self::SMARTY_CACHE);
-		$this->setTemplateDir(APPLICATION_PATH.'/'.self::LAYOUT_DIR);
+	static function VIEW($params, $smarty) {
+		$smarty->renderView ();
+	}
+	public function __construct() {
+		parent::__construct ();
+		$this->initDirs ();
+		$this->initLayout ();
+		$this->initPlugins ();
+	}
+	private function initPlugins() {
+		$this->registerPlugin ( 'function', 'cizgiview', 'Cizgi_View::VIEW' );
+	}
+	private function initLayout() {
 		$this->layoutEnabled = Configuration::$viewLayout == 1;
-		$this->setLayout(Configuration::$viewDefaultLayout);
+		$this->setLayout ( Configuration::$viewDefaultLayout );
+	}
+	private function initDirs() {
+		$this->setCacheDir ( ROOT_PATH . '/' . self::SMARTY_CACHE );
+		$this->setCompileDir ( ROOT_PATH . '/' . self::SMARTY_CACHE );
+		$this->setTemplateDir ( APPLICATION_PATH . '/' . self::LAYOUT_DIR );
 	}
 	
 	/**
 	 * Girilen parametrelere göre bir url oluşturur
-	 * @param string $controller
-	 * @param string $action
-	 * @param string or array $parameters
-	 * @param string $ext uzantı
+	 * 
+	 * @param string $controller        	
+	 * @param string $action        	
+	 * @param
+	 *        	string or array $parameters
+	 * @param string $ext
+	 *        	uzantı
 	 * @return string
 	 */
 	public function getLink($controller = null, $action = null, $parameters = null, $ext = null) {
@@ -54,13 +66,11 @@ class Cizgi_View extends Smarty {
 			$link .= sprintf ( "%s/%s/%s", $this->getApplicationUrl (), $controller, $action );
 			$link = $this->addParameters ( $parameters, $link );
 			
-			if(is_null($ext))
-			{
-				$ext = $this->getApplicationDefaultExtention();
+			if (is_null ( $ext )) {
+				$ext = $this->getApplicationDefaultExtention ();
 			}
-			if(!empty($ext))
-			{
-				$link .= '.'.$ext;
+			if (! empty ( $ext )) {
+				$link .= '.' . $ext;
 			}
 			return $link;
 		}
@@ -68,8 +78,10 @@ class Cizgi_View extends Smarty {
 	
 	/**
 	 * link değerine parametreleri ekler ve geri dönderir
-	 * @param string or array $parameters
-	 * @param string $link
+	 * 
+	 * @param
+	 *        	string or array $parameters
+	 * @param string $link        	
 	 * @return string
 	 */
 	private function addParameters($parameters, $link) {
@@ -84,8 +96,9 @@ class Cizgi_View extends Smarty {
 	}
 	/**
 	 * Parametreleri url bağlantısına ekler
-	 * @param string $parameters
-	 * @param string $link
+	 * 
+	 * @param string $parameters        	
+	 * @param string $link        	
 	 * @return string
 	 */
 	private function mergeParameters($parameters, $link) {
@@ -103,159 +116,117 @@ class Cizgi_View extends Smarty {
 	/**
 	 * Uygulamanın varsayılan uzantısı
 	 */
-	public function getApplicationDefaultExtention()
-	{
+	public function getApplicationDefaultExtention() {
 		return Configuration::$defaultExtention;
 	}
-	
-	public function getImagesDir()
-	{
-		return $this->getApplicationUrl()."/".self::GET_PUBLIC_DIR()."/".$this->imagesDir;
+	public function getImagesDir() {
+		return $this->getApplicationUrl () . "/" . self::GET_PUBLIC_DIR () . "/" . $this->imagesDir;
 	}
-	
-	public function getScriptsDir()
-	{
-		return $this->getApplicationUrl()."/".self::GET_PUBLIC_DIR()."/".$this->scriptsDir;
+	public function getScriptsDir() {
+		return $this->getApplicationUrl () . "/" . self::GET_PUBLIC_DIR () . "/" . $this->scriptsDir;
 	}
-	
-	public function getStylesDir()
-	{
-		return $this->getApplicationUrl()."/".self::GET_PUBLIC_DIR()."/".$this->stylesDir;
+	public function getStylesDir() {
+		return $this->getApplicationUrl () . "/" . self::GET_PUBLIC_DIR () . "/" . $this->stylesDir;
 	}
-	
-	public function getStyle()
-	{
-		return $this->getApplicationUrl()."/".self::GET_PUBLIC_DIR()."/"
-				.$this->stylesDir."/".$this->defaultStyle;
+	public function getStyle() {
+		return $this->getApplicationUrl () . "/" . self::GET_PUBLIC_DIR () . "/" . $this->stylesDir . "/" . $this->defaultStyle;
 	}
 	
 	/**
-	 * @param string $imagesDir
+	 *
+	 * @param string $imagesDir        	
 	 */
 	public function setImagesDir($imagesDir) {
 		$this->imagesDir = $imagesDir;
 	}
 	
 	/**
-	 * @param string $scriptsDir
+	 *
+	 * @param string $scriptsDir        	
 	 */
 	public function setScriptsDir($scriptsDir) {
 		$this->scriptsDir = $scriptsDir;
 	}
 	
 	/**
-	 * @param string $stylesDir
+	 *
+	 * @param string $stylesDir        	
 	 */
 	public function setStylesDir($stylesDir) {
 		$this->stylesDir = $stylesDir;
 	}
 	
 	/**
-	 * @param string $defaultStyle
+	 *
+	 * @param string $defaultStyle        	
 	 */
 	public function setStyle($defaultStyle) {
 		$this->defaultStyle = $defaultStyle;
 	}
-	
-	public function getHTMLData($key = null)
-	{
-		if(!array_key_exists($key, $this->htmlData)){
+	public function getHTMLData($key = null) {
+		if (! array_key_exists ( $key, $this->htmlData )) {
 			return null;
 		}
-		return $this->htmlData[$key];
+		return $this->htmlData [$key];
 	}
-	
-	public function setHTMLData($key, $value)
-	{
-		$this->htmlData[$key] = $value;
+	public function setHTMLData($key, $value) {
+		$this->htmlData [$key] = $value;
 	}
-	
-	public function setOutput($action, $controller = null)
-	{
+	public function setOutput($action, $controller = null) {
 		$this->action = $action;
-		if(!is_null($controller))
-		{
+		if (! is_null ( $controller )) {
 			$this->controller = $controller;
 		}
 	}
-	
-	public function getViewFile()
-	{
-		//return sprintf("%s/%s/%s/%s.%s", APPLICATION_PATH, self::VIEW_DIR, 
-		//		$this->controller, $this->action, self::GET_VIEW_EXTENTION());
-		return sprintf("%s.%s", $this->action, self::GET_VIEW_EXTENTION());
-		
+	public function getViewFile() {
+		// return sprintf("%s/%s/%s/%s.%s", APPLICATION_PATH, self::VIEW_DIR,
+		// $this->controller, $this->action, self::GET_VIEW_EXTENTION());
+		return sprintf ( "%s.%s", $this->action, self::GET_VIEW_EXTENTION () );
 	}
-	
-	public function getViewDir()
-	{
-		return sprintf("%s/%s/%s", APPLICATION_PATH, self::VIEW_DIR,
-						$this->controller);
+	public function getViewDir() {
+		return sprintf ( "%s/%s/%s", APPLICATION_PATH, self::VIEW_DIR, $this->controller );
 	}
-	
-	public function renderView()
-	{
-		$this->addTemplateDir($this->getViewDir(), 'v');
-	    $this->display(self::VIEW_TEMPLATE_PREFIX.$this->getViewFile());
+	public function renderView() {
+		$this->addTemplateDir ( $this->getViewDir (), 'v' );
+		$this->display ( self::VIEW_TEMPLATE_PREFIX . $this->getViewFile () );
 	}
-	
-	public function renderLayout()
-	{
-		$this->display($this->getLayout());
+	public function renderLayout() {
+		$this->display ( $this->getLayout () );
 	}
-	
-	public function render()
-	{
+	public function render() {
 		$this->initSpecialVariables ();
-		if($this->layoutEnabled)
-			$this->renderLayout();
+		if ($this->layoutEnabled)
+			$this->renderLayout ();
 		else
-			$this->renderView();
+			$this->renderView ();
 	}
-	
 	private function initSpecialVariables() {
-		parent::assign('html', $this->htmlData);
+		parent::assign ( 'html', $this->htmlData );
 	}
-
-	
-	public function setLayout($layout)
-	{
-		$this->layoutFile = $layout.'.'.self::GET_VIEW_EXTENTION();
+	public function setLayout($layout) {
+		$this->layoutFile = $layout . '.' . self::GET_VIEW_EXTENTION ();
 	}
-	
-	protected function getLayout()
-	{
+	protected function getLayout() {
 		return $this->layoutFile;
 	}
-	
-	public function enableLayout()
-	{
+	public function enableLayout() {
 		$this->layoutEnabled = true;
 	}
-	
-	public function disableLayout()
-	{
-		$this->layoutEnabled = false;	
+	public function disableLayout() {
+		$this->layoutEnabled = false;
 	}
-	
-	public function __set($name, $value)
-	{
-		$this->assign($name, $value);
+	public function __set($name, $value) {
+		$this->assign ( $name, $value );
 	}
-	
-	public function assign($tpl_var, $value = null, $nocache = false)
-	{
+	public function assign($tpl_var, $value = null, $nocache = false) {
 		$this->checkVariableName ( $tpl_var );
-		parent::assign($tpl_var, $value, $nocache);
+		parent::assign ( $tpl_var, $value, $nocache );
 	}
-	
 	private function checkVariableName($name) {
-		if(in_array($name, $this->illegalVariables))
-		{
-			throw new Cizgi_View_IllegalVariableException($name.' is not allowed for template files');
+		if (in_array ( $name, $this->illegalVariables )) {
+			throw new Cizgi_View_IllegalVariableException ( $name . ' is not allowed for template files' );
 		}
 	}
-
 }
-
-class Cizgi_View_IllegalVariableException extends RuntimeException {}
+class Cizgi_View_IllegalVariableException extends RuntimeException {
+}
