@@ -1,0 +1,694 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Çizgi » \Cizgi_View</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Çizgi</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/Cizgi.html"><i class="icon-folder-open"></i> Cizgi</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">55</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_GET_PUBLIC_DIR" title="GET_PUBLIC_DIR :: uygulamanın çalıştığı public dizini"><span class="description">uygulamanın çalıştığı public dizini</span><pre>GET_PUBLIC_DIR()</pre></a></li>
+<li class="method public "><a href="#method_GET_VIEW_EXTENTION" title="GET_VIEW_EXTENTION :: Configuration ile ayarlanan template dosyalarının varsayılan uzantısı"><span class="description">Configuration ile ayarlanan template dosyalarının varsayılan uzantısı</span><pre>GET_VIEW_EXTENTION()</pre></a></li>
+<li class="method public "><a href="#method_VIEW" title="VIEW :: Temalarda view'leri otomatik entegre etmek için yazılan smarty plugin fonksiyonu"><span class="description">Temalarda view'leri otomatik entegre etmek için yazılan smarty plugin fonksiyonu</span><pre>VIEW()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct :: "><span class="description">__construct()
+        </span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method___set" title="__set :: assign metodunu dolaylı olarak kullanır"><span class="description">assign metodunu dolaylı olarak kullanır</span><pre>__set()</pre></a></li>
+<li class="method public "><a href="#method_assign" title="assign :: Smarty değişkenlerinin atamasını yapar özel değişkenler için atama yapılmasını engeller"><span class="description">Smarty değişkenlerinin atamasını yapar özel değişkenler için atama yapılmasını engeller</span><pre>assign()</pre></a></li>
+<li class="method public "><a href="#method_disableLayout" title="disableLayout :: Layout kullanımını pasifleştirir"><span class="description">Layout kullanımını pasifleştirir</span><pre>disableLayout()</pre></a></li>
+<li class="method public "><a href="#method_enableLayout" title="enableLayout :: Layout kullanımını aktifleştirir"><span class="description">Layout kullanımını aktifleştirir</span><pre>enableLayout()</pre></a></li>
+<li class="method public "><a href="#method_getApplicationDefaultExtention" title="getApplicationDefaultExtention :: Uygulamanın varsayılan uzantısı"><span class="description">Uygulamanın varsayılan uzantısı</span><pre>getApplicationDefaultExtention()</pre></a></li>
+<li class="method public "><a href="#method_getApplicationUrl" title="getApplicationUrl :: Uygulamanın URL'i"><span class="description">Uygulamanın URL'i</span><pre>getApplicationUrl()</pre></a></li>
+<li class="method public "><a href="#method_getHTMLData" title="getHTMLData :: HTML için gerekli bilgileri elde etmek için kullanılır"><span class="description">HTML için gerekli bilgileri elde etmek için kullanılır</span><pre>getHTMLData()</pre></a></li>
+<li class="method public "><a href="#method_getImagesDir" title="getImagesDir :: "><span class="description">getImagesDir()
+        </span><pre>getImagesDir()</pre></a></li>
+<li class="method public "><a href="#method_getLink" title="getLink :: Girilen parametrelere göre bir url oluşturur"><span class="description">Girilen parametrelere göre bir url oluşturur</span><pre>getLink()</pre></a></li>
+<li class="method public "><a href="#method_getScriptsDir" title="getScriptsDir :: "><span class="description">getScriptsDir()
+        </span><pre>getScriptsDir()</pre></a></li>
+<li class="method public "><a href="#method_getStyle" title="getStyle :: "><span class="description">getStyle()
+        </span><pre>getStyle()</pre></a></li>
+<li class="method public "><a href="#method_getStylesDir" title="getStylesDir :: "><span class="description">getStylesDir()
+        </span><pre>getStylesDir()</pre></a></li>
+<li class="method public "><a href="#method_getViewDir" title="getViewDir :: View dosyalarının bulunduğu dizini dönderir"><span class="description">View dosyalarının bulunduğu dizini dönderir</span><pre>getViewDir()</pre></a></li>
+<li class="method public "><a href="#method_getViewFile" title="getViewFile :: Derlenecek olan view dosyasını dönderir"><span class="description">Derlenecek olan view dosyasını dönderir</span><pre>getViewFile()</pre></a></li>
+<li class="method public "><a href="#method_render" title="render :: Çıktı üretir"><span class="description">Çıktı üretir</span><pre>render()</pre></a></li>
+<li class="method public "><a href="#method_renderLayout" title="renderLayout :: Layout'u derleyip çıktı olarak üretir"><span class="description">Layout'u derleyip çıktı olarak üretir</span><pre>renderLayout()</pre></a></li>
+<li class="method public "><a href="#method_renderView" title="renderView :: View dosyasını derleyip çıktı olarak üretir"><span class="description">View dosyasını derleyip çıktı olarak üretir</span><pre>renderView()</pre></a></li>
+<li class="method public "><a href="#method_setHTMLData" title="setHTMLData :: HTML değişkenlerini atamak için kullanılır"><span class="description">HTML değişkenlerini atamak için kullanılır</span><pre>setHTMLData()</pre></a></li>
+<li class="method public "><a href="#method_setImagesDir" title="setImagesDir :: "><span class="description">setImagesDir()
+        </span><pre>setImagesDir()</pre></a></li>
+<li class="method public "><a href="#method_setLayout" title="setLayout :: Ana layout dosyasını değiştirir"><span class="description">Ana layout dosyasını değiştirir</span><pre>setLayout()</pre></a></li>
+<li class="method public "><a href="#method_setOutput" title="setOutput :: Derlenecek view dosyasını belirler"><span class="description">Derlenecek view dosyasını belirler</span><pre>setOutput()</pre></a></li>
+<li class="method public "><a href="#method_setScriptsDir" title="setScriptsDir :: "><span class="description">setScriptsDir()
+        </span><pre>setScriptsDir()</pre></a></li>
+<li class="method public "><a href="#method_setStyle" title="setStyle :: "><span class="description">setStyle()
+        </span><pre>setStyle()</pre></a></li>
+<li class="method public "><a href="#method_setStylesDir" title="setStylesDir :: "><span class="description">setStylesDir()
+        </span><pre>setStylesDir()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul><li class="method protected "><a href="#method_getLayout" title="getLayout :: "><span class="description">getLayout()
+        </span><pre>getLayout()</pre></a></li></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="method private "><a href="#method_addParameters" title="addParameters :: link değerine parametreleri ekler ve geri dönderir"><span class="description">link değerine parametreleri ekler ve geri dönderir</span><pre>addParameters()</pre></a></li>
+<li class="method private "><a href="#method_checkVariableName" title="checkVariableName :: Smarty değişkenlerinin geçerli olup olmadığını kontrol eder"><span class="description">Smarty değişkenlerinin geçerli olup olmadığını kontrol eder</span><pre>checkVariableName()</pre></a></li>
+<li class="method private "><a href="#method_initDirs" title="initDirs :: smarty ile ilgili dizin tanımları yapar"><span class="description">smarty ile ilgili dizin tanımları yapar</span><pre>initDirs()</pre></a></li>
+<li class="method private "><a href="#method_initLayout" title="initLayout :: Uygulamada kullanılacak olan layout bilgilerini tanımlar"><span class="description">Uygulamada kullanılacak olan layout bilgilerini tanımlar</span><pre>initLayout()</pre></a></li>
+<li class="method private "><a href="#method_initPlugins" title="initPlugins :: Smarty için gerekli plugin tanımlamalarını yapar"><span class="description">Smarty için gerekli plugin tanımlamalarını yapar</span><pre>initPlugins()</pre></a></li>
+<li class="method private "><a href="#method_initSpecialVariables" title="initSpecialVariables :: Özel smarty değişkenlerin tanımlanmasını yapar"><span class="description">Özel smarty değişkenlerin tanımlanmasını yapar</span><pre>initSpecialVariables()</pre></a></li>
+<li class="method private "><a href="#method_mergeParameters" title="mergeParameters :: Parametreleri url bağlantısına ekler"><span class="description">Parametreleri url bağlantısına ekler</span><pre>mergeParameters()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property_action" title="$action :: "><span class="description"></span><pre>$action</pre></a></li>
+<li class="property protected "><a href="#property_controller" title="$controller :: "><span class="description"></span><pre>$controller</pre></a></li>
+<li class="property protected "><a href="#property_defaultStyle" title="$defaultStyle :: "><span class="description"></span><pre>$defaultStyle</pre></a></li>
+<li class="property protected "><a href="#property_htmlData" title="$htmlData :: "><span class="description"></span><pre>$htmlData</pre></a></li>
+<li class="property protected "><a href="#property_imagesDir" title="$imagesDir :: "><span class="description"></span><pre>$imagesDir</pre></a></li>
+<li class="property protected "><a href="#property_layoutEnabled" title="$layoutEnabled :: "><span class="description"></span><pre>$layoutEnabled</pre></a></li>
+<li class="property protected "><a href="#property_layoutFile" title="$layoutFile :: "><span class="description"></span><pre>$layoutFile</pre></a></li>
+<li class="property protected "><a href="#property_scriptsDir" title="$scriptsDir :: "><span class="description"></span><pre>$scriptsDir</pre></a></li>
+<li class="property protected "><a href="#property_stylesDir" title="$stylesDir :: "><span class="description"></span><pre>$stylesDir</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="property private "><a href="#property_illegalVariables" title="$illegalVariables :: "><span class="description"></span><pre>$illegalVariables</pre></a></li></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants
+                    <ul>
+<li class="constant  "><a href="#constant_GET_PUBLIC_DIR" title="GET_PUBLIC_DIR :: "><span class="description">GET_PUBLIC_DIR</span><pre>GET_PUBLIC_DIR</pre></a></li>
+<li class="constant  "><a href="#constant_LAYOUT_DIR" title="LAYOUT_DIR :: "><span class="description">LAYOUT_DIR</span><pre>LAYOUT_DIR</pre></a></li>
+<li class="constant  "><a href="#constant_SMARTY_CACHE" title="SMARTY_CACHE :: "><span class="description">SMARTY_CACHE</span><pre>SMARTY_CACHE</pre></a></li>
+<li class="constant  "><a href="#constant_SMARTY_COMPILE" title="SMARTY_COMPILE :: "><span class="description">SMARTY_COMPILE</span><pre>SMARTY_COMPILE</pre></a></li>
+<li class="constant  "><a href="#constant_VIEW_DIR" title="VIEW_DIR :: "><span class="description">VIEW_DIR</span><pre>VIEW_DIR</pre></a></li>
+<li class="constant  "><a href="#constant_VIEW_TEMPLATE_PREFIX" title="VIEW_TEMPLATE_PREFIX :: "><span class="description">VIEW_TEMPLATE_PREFIX</span><pre>VIEW_TEMPLATE_PREFIX</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Cizgi_View"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Cizgi_View.html">Cizgi_View</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Uygulamada kullanılan View sınıfı</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="mailto:omer@ozkan.info">Ömer Özkan</a></td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/Cizgi.html">Cizgi</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>0.1</td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_GET_PUBLIC_DIR"></a><div class="element clickable method public method_GET_PUBLIC_DIR" data-toggle="collapse" data-target=".method_GET_PUBLIC_DIR .collapse">
+<h2>uygulamanın çalıştığı public dizini</h2>
+<pre>GET_PUBLIC_DIR() : string</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>public dizininin tam yolu</div>
+</div></div>
+</div>
+<a id="method_GET_VIEW_EXTENTION"></a><div class="element clickable method public method_GET_VIEW_EXTENTION" data-toggle="collapse" data-target=".method_GET_VIEW_EXTENTION .collapse">
+<h2>Configuration ile ayarlanan template dosyalarının varsayılan uzantısı</h2>
+<pre>GET_VIEW_EXTENTION() : string</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>dosya uzantısı</div>
+</div></div>
+</div>
+<a id="method_VIEW"></a><div class="element clickable method public method_VIEW" data-toggle="collapse" data-target=".method_VIEW .collapse">
+<h2>Temalarda view'leri otomatik entegre etmek için yazılan smarty plugin fonksiyonu</h2>
+<pre>VIEW(array $params, \Smarty $smarty) </pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parametreler</p></div>
+<div class="subelement argument">
+<h4>$smarty</h4>
+<code>\Smarty</code><p>smarty nesnesi</p></div>
+</div></div>
+</div>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>__construct()
+        </h2>
+<pre>__construct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method___set"></a><div class="element clickable method public method___set" data-toggle="collapse" data-target=".method___set .collapse">
+<h2>assign metodunu dolaylı olarak kullanır</h2>
+<pre>__set($name, $value) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td><a href="">\Smarty::__set()</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$name</h4></div>
+<div class="subelement argument"><h4>$value</h4></div>
+</div></div>
+</div>
+<a id="method_assign"></a><div class="element clickable method public method_assign" data-toggle="collapse" data-target=".method_assign .collapse">
+<h2>Smarty değişkenlerinin atamasını yapar özel değişkenler için atama yapılmasını engeller</h2>
+<pre>assign($tpl_var, $value, $nocache) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td><a href="">\Smarty_Internal_Data::assign()</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$tpl_var</h4></div>
+<div class="subelement argument"><h4>$value</h4></div>
+<div class="subelement argument"><h4>$nocache</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/Cizgi_View_IllegalVariableException.html">\Cizgi_View_IllegalVariableException</a></code></th>
+<td>izin verilmeyen değişken tanımlaması</td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_disableLayout"></a><div class="element clickable method public method_disableLayout" data-toggle="collapse" data-target=".method_disableLayout .collapse">
+<h2>Layout kullanımını pasifleştirir</h2>
+<pre>disableLayout() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_enableLayout"></a><div class="element clickable method public method_enableLayout" data-toggle="collapse" data-target=".method_enableLayout .collapse">
+<h2>Layout kullanımını aktifleştirir</h2>
+<pre>enableLayout() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getApplicationDefaultExtention"></a><div class="element clickable method public method_getApplicationDefaultExtention" data-toggle="collapse" data-target=".method_getApplicationDefaultExtention .collapse">
+<h2>Uygulamanın varsayılan uzantısı</h2>
+<pre>getApplicationDefaultExtention() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getApplicationUrl"></a><div class="element clickable method public method_getApplicationUrl" data-toggle="collapse" data-target=".method_getApplicationUrl .collapse">
+<h2>Uygulamanın URL'i</h2>
+<pre>getApplicationUrl() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getHTMLData"></a><div class="element clickable method public method_getHTMLData" data-toggle="collapse" data-target=".method_getHTMLData .collapse">
+<h2>HTML için gerekli bilgileri elde etmek için kullanılır</h2>
+<pre>getHTMLData(string $key) : NULL | string | \array:</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>anahtar</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>NULL</code><code>string</code><code>\array:</code>parametre girilmezse dizi, parametre girilirse o html bilgisinin değeri</div>
+</div></div>
+</div>
+<a id="method_getImagesDir"></a><div class="element clickable method public method_getImagesDir" data-toggle="collapse" data-target=".method_getImagesDir .collapse">
+<h2>getImagesDir()
+        </h2>
+<pre>getImagesDir() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getLink"></a><div class="element clickable method public method_getLink" data-toggle="collapse" data-target=".method_getLink .collapse">
+<h2>Girilen parametrelere göre bir url oluşturur</h2>
+<pre>getLink(string $controller, string $action, string $parameters, string $ext) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$controller</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$action</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$parameters</h4>
+<code>string</code><p>or array $parameters</p>
+</div>
+<div class="subelement argument">
+<h4>$ext</h4>
+<code>string</code><p>uzantı</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getScriptsDir"></a><div class="element clickable method public method_getScriptsDir" data-toggle="collapse" data-target=".method_getScriptsDir .collapse">
+<h2>getScriptsDir()
+        </h2>
+<pre>getScriptsDir() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getStyle"></a><div class="element clickable method public method_getStyle" data-toggle="collapse" data-target=".method_getStyle .collapse">
+<h2>getStyle()
+        </h2>
+<pre>getStyle() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getStylesDir"></a><div class="element clickable method public method_getStylesDir" data-toggle="collapse" data-target=".method_getStylesDir .collapse">
+<h2>getStylesDir()
+        </h2>
+<pre>getStylesDir() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getViewDir"></a><div class="element clickable method public method_getViewDir" data-toggle="collapse" data-target=".method_getViewDir .collapse">
+<h2>View dosyalarının bulunduğu dizini dönderir</h2>
+<pre>getViewDir() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>dizin</div>
+</div></div>
+</div>
+<a id="method_getViewFile"></a><div class="element clickable method public method_getViewFile" data-toggle="collapse" data-target=".method_getViewFile .collapse">
+<h2>Derlenecek olan view dosyasını dönderir</h2>
+<pre>getViewFile() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>view dosyası örneğin: 'index.phtml'</div>
+</div></div>
+</div>
+<a id="method_render"></a><div class="element clickable method public method_render" data-toggle="collapse" data-target=".method_render .collapse">
+<h2>Çıktı üretir</h2>
+<pre>render() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_renderLayout"></a><div class="element clickable method public method_renderLayout" data-toggle="collapse" data-target=".method_renderLayout .collapse">
+<h2>Layout'u derleyip çıktı olarak üretir</h2>
+<pre>renderLayout() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_renderView"></a><div class="element clickable method public method_renderView" data-toggle="collapse" data-target=".method_renderView .collapse">
+<h2>View dosyasını derleyip çıktı olarak üretir</h2>
+<pre>renderView() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_setHTMLData"></a><div class="element clickable method public method_setHTMLData" data-toggle="collapse" data-target=".method_setHTMLData .collapse">
+<h2>HTML değişkenlerini atamak için kullanılır</h2>
+<pre>setHTMLData(string $key, \multiple $value) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>anahtar</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>\multiple</code><p>değer</p>
+</div>
+</div></div>
+</div>
+<a id="method_setImagesDir"></a><div class="element clickable method public method_setImagesDir" data-toggle="collapse" data-target=".method_setImagesDir .collapse">
+<h2>setImagesDir()
+        </h2>
+<pre>setImagesDir(string $imagesDir) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$imagesDir</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a id="method_setLayout"></a><div class="element clickable method public method_setLayout" data-toggle="collapse" data-target=".method_setLayout .collapse">
+<h2>Ana layout dosyasını değiştirir</h2>
+<pre>setLayout(string $layout) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$layout</h4>
+<code>string</code><p>layout dosya adı örneğin: 'index.phtml'</p>
+</div>
+</div></div>
+</div>
+<a id="method_setOutput"></a><div class="element clickable method public method_setOutput" data-toggle="collapse" data-target=".method_setOutput .collapse">
+<h2>Derlenecek view dosyasını belirler</h2>
+<pre>setOutput(string $action, string $controller) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$action</h4>
+<code>string</code><p>action adı örneğin: 'index'</p>
+</div>
+<div class="subelement argument">
+<h4>$controller</h4>
+<code>string</code><p>controller adı örneğin: 'error'</p>
+</div>
+</div></div>
+</div>
+<a id="method_setScriptsDir"></a><div class="element clickable method public method_setScriptsDir" data-toggle="collapse" data-target=".method_setScriptsDir .collapse">
+<h2>setScriptsDir()
+        </h2>
+<pre>setScriptsDir(string $scriptsDir) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$scriptsDir</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a id="method_setStyle"></a><div class="element clickable method public method_setStyle" data-toggle="collapse" data-target=".method_setStyle .collapse">
+<h2>setStyle()
+        </h2>
+<pre>setStyle(string $defaultStyle) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$defaultStyle</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a id="method_setStylesDir"></a><div class="element clickable method public method_setStylesDir" data-toggle="collapse" data-target=".method_setStylesDir .collapse">
+<h2>setStylesDir()
+        </h2>
+<pre>setStylesDir(string $stylesDir) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$stylesDir</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a id="method_getLayout"></a><div class="element clickable method protected method_getLayout" data-toggle="collapse" data-target=".method_getLayout .collapse">
+<h2>getLayout()
+        </h2>
+<pre>getLayout() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Ana layout dosyası</div>
+</div></div>
+</div>
+<a id="method_addParameters"></a><div class="element clickable method private method_addParameters" data-toggle="collapse" data-target=".method_addParameters .collapse">
+<h2>link değerine parametreleri ekler ve geri dönderir</h2>
+<pre>addParameters(string $parameters, string $link) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$parameters</h4>
+<code>string</code><p>or array $parameters</p>
+</div>
+<div class="subelement argument">
+<h4>$link</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_checkVariableName"></a><div class="element clickable method private method_checkVariableName" data-toggle="collapse" data-target=".method_checkVariableName .collapse">
+<h2>Smarty değişkenlerinin geçerli olup olmadığını kontrol eder</h2>
+<pre>checkVariableName(string $name) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>değişken adı</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/Cizgi_View_IllegalVariableException.html">\Cizgi_View_IllegalVariableException</a></code></th>
+<td>izin verilmeyen değişken tanımlaması</td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_initDirs"></a><div class="element clickable method private method_initDirs" data-toggle="collapse" data-target=".method_initDirs .collapse">
+<h2>smarty ile ilgili dizin tanımları yapar</h2>
+<pre>initDirs() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_initLayout"></a><div class="element clickable method private method_initLayout" data-toggle="collapse" data-target=".method_initLayout .collapse">
+<h2>Uygulamada kullanılacak olan layout bilgilerini tanımlar</h2>
+<pre>initLayout() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_initPlugins"></a><div class="element clickable method private method_initPlugins" data-toggle="collapse" data-target=".method_initPlugins .collapse">
+<h2>Smarty için gerekli plugin tanımlamalarını yapar</h2>
+<pre>initPlugins() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_initSpecialVariables"></a><div class="element clickable method private method_initSpecialVariables" data-toggle="collapse" data-target=".method_initSpecialVariables .collapse">
+<h2>Özel smarty değişkenlerin tanımlanmasını yapar</h2>
+<pre>initSpecialVariables() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_mergeParameters"></a><div class="element clickable method private method_mergeParameters" data-toggle="collapse" data-target=".method_mergeParameters .collapse">
+<h2>Parametreleri url bağlantısına ekler</h2>
+<pre>mergeParameters(string $parameters, string $link) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$parameters</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$link</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_action"> </a><div class="element clickable property protected property_action" data-toggle="collapse" data-target=".property_action .collapse">
+<h2></h2>
+<pre>$action </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_controller"> </a><div class="element clickable property protected property_controller" data-toggle="collapse" data-target=".property_controller .collapse">
+<h2></h2>
+<pre>$controller </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_defaultStyle"> </a><div class="element clickable property protected property_defaultStyle" data-toggle="collapse" data-target=".property_defaultStyle .collapse">
+<h2></h2>
+<pre>$defaultStyle </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_htmlData"> </a><div class="element clickable property protected property_htmlData" data-toggle="collapse" data-target=".property_htmlData .collapse">
+<h2></h2>
+<pre>$htmlData </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_imagesDir"> </a><div class="element clickable property protected property_imagesDir" data-toggle="collapse" data-target=".property_imagesDir .collapse">
+<h2></h2>
+<pre>$imagesDir </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_layoutEnabled"> </a><div class="element clickable property protected property_layoutEnabled" data-toggle="collapse" data-target=".property_layoutEnabled .collapse">
+<h2></h2>
+<pre>$layoutEnabled </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_layoutFile"> </a><div class="element clickable property protected property_layoutFile" data-toggle="collapse" data-target=".property_layoutFile .collapse">
+<h2></h2>
+<pre>$layoutFile </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_scriptsDir"> </a><div class="element clickable property protected property_scriptsDir" data-toggle="collapse" data-target=".property_scriptsDir .collapse">
+<h2></h2>
+<pre>$scriptsDir </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_stylesDir"> </a><div class="element clickable property protected property_stylesDir" data-toggle="collapse" data-target=".property_stylesDir .collapse">
+<h2></h2>
+<pre>$stylesDir </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_illegalVariables"> </a><div class="element clickable property private property_illegalVariables" data-toggle="collapse" data-target=".property_illegalVariables .collapse">
+<h2></h2>
+<pre>$illegalVariables </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_GET_PUBLIC_DIR"> </a><div class="element clickable constant  constant_GET_PUBLIC_DIR" data-toggle="collapse" data-target=".constant_GET_PUBLIC_DIR .collapse">
+<h2>GET_PUBLIC_DIR</h2>
+<pre>GET_PUBLIC_DIR </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_LAYOUT_DIR"> </a><div class="element clickable constant  constant_LAYOUT_DIR" data-toggle="collapse" data-target=".constant_LAYOUT_DIR .collapse">
+<h2>LAYOUT_DIR</h2>
+<pre>LAYOUT_DIR </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_SMARTY_CACHE"> </a><div class="element clickable constant  constant_SMARTY_CACHE" data-toggle="collapse" data-target=".constant_SMARTY_CACHE .collapse">
+<h2>SMARTY_CACHE</h2>
+<pre>SMARTY_CACHE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_SMARTY_COMPILE"> </a><div class="element clickable constant  constant_SMARTY_COMPILE" data-toggle="collapse" data-target=".constant_SMARTY_COMPILE .collapse">
+<h2>SMARTY_COMPILE</h2>
+<pre>SMARTY_COMPILE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_VIEW_DIR"> </a><div class="element clickable constant  constant_VIEW_DIR" data-toggle="collapse" data-target=".constant_VIEW_DIR .collapse">
+<h2>VIEW_DIR</h2>
+<pre>VIEW_DIR </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_VIEW_TEMPLATE_PREFIX"> </a><div class="element clickable constant  constant_VIEW_TEMPLATE_PREFIX" data-toggle="collapse" data-target=".constant_VIEW_TEMPLATE_PREFIX .collapse">
+<h2>VIEW_TEMPLATE_PREFIX</h2>
+<pre>VIEW_TEMPLATE_PREFIX </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-05-08T02:09:31+03:00.<br></footer></div>
+</div>
+</body>
+</html>

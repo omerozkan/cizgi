@@ -1,0 +1,1501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a12" title="Çizgi">
+  <file path="URLDispatcher.php" hash="fb47061f8a6a0ef0563e08147bfd776f" package="Default">
+    <class final="false" abstract="false" namespace="global" line="8" package="Cizgi">
+      <extends/>
+      <name>Cizgi_URLDispatcher</name>
+      <full_name>\Cizgi_URLDispatcher</full_name>
+      <docblock line="2">
+        <description>Gelen isteği controller, action ve parametrelere böler</description>
+        <long-description/>
+        <tag line="2" name="author" description="Ömer ÖZKAN &lt;omer@ozkan.info&gt;"/>
+        <tag line="2" name="package" description="Cizgi"/>
+        <tag line="2" name="version" description="0.1"/>
+      </docblock>
+      <constant namespace="global" line="13" package="Cizgi">
+        <name>DEFAULT_ACTION</name>
+        <full_name>DEFAULT_ACTION</full_name>
+        <value>"index"</value>
+      </constant>
+      <property final="false" static="false" visibility="private" line="10" namespace="global" package="Default">
+        <name>$controller</name>
+        <default/>
+      </property>
+      <property final="false" static="false" visibility="private" line="11" namespace="global" package="Default">
+        <name>$action</name>
+        <default/>
+      </property>
+      <property final="false" static="false" visibility="private" line="12" namespace="global" package="Default">
+        <name>$parameters</name>
+        <default/>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="19" package="Cizgi">
+        <name>dispatch</name>
+        <full_name>dispatch</full_name>
+        <docblock line="15">
+          <description>bir Request'i controller, action ve parametrelere böler</description>
+          <long-description/>
+          <tag line="15" name="param" description="request" type="string" variable="$url">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="19">
+          <name>$url</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="40" package="Cizgi">
+        <name>setActionAsDefault</name>
+        <full_name>setActionAsDefault</full_name>
+        <docblock line="37">
+          <description>Varsayılan action'ı kullanır</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="47" package="Cizgi">
+        <name>getController</name>
+        <full_name>getController</full_name>
+        <docblock line="44">
+          <description/>
+          <long-description/>
+          <tag line="44" name="return" description="controller" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="55" package="Cizgi">
+        <name>getAction</name>
+        <full_name>getAction</full_name>
+        <docblock line="51">
+          <description/>
+          <long-description/>
+          <tag line="51" name="return" description="action" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="64" package="Cizgi">
+        <name>setDefaultController</name>
+        <full_name>setDefaultController</full_name>
+        <docblock line="60">
+          <description>request içerisinde belirtilmemişse varsayılan controller değerini atar</description>
+          <long-description/>
+          <tag line="60" name="param" description="controller" type="string" variable="$controller">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="64">
+          <name>$controller</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="75" package="Cizgi">
+        <name>getParameters</name>
+        <full_name>getParameters</full_name>
+        <docblock line="71">
+          <description>action metodları için parametreleri dönderir</description>
+          <long-description/>
+          <tag line="71" name="return" description="parametre dizisi" type="\multitype:string">
+            <type by_reference="false">\multitype:string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file URLDispatcher.php</error>
+      <error line="10" code="50018">No DocBlock was found for property $controller</error>
+      <error line="11" code="50018">No DocBlock was found for property $action</error>
+      <error line="12" code="50018">No DocBlock was found for property $parameters</error>
+      <error line="44" code="50012">No short description for method getController()</error>
+      <error line="51" code="50012">No short description for method getAction()</error>
+    </parse_markers>
+  </file>
+  <file path="autoload.php" hash="e8c0091a083f8bcf1bfb1032cb13d15e" package="Cizgi">
+    <docblock line="2">
+      <description/>
+      <long-description/>
+      <tag line="2" name="package" description="Cizgi"/>
+      <tag line="2" name="version" description="0.1"/>
+    </docblock>
+    <include line="6" type="Require" package="Default">
+      <name/>
+    </include>
+    <include line="16" type="Require" package="Default">
+      <name/>
+    </include>
+    <function namespace="global" line="10" package="Cizgi">
+      <name>__autoload</name>
+      <full_name>\__autoload</full_name>
+      <argument line="10">
+        <name>$name</name>
+        <default/>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="global" line="23" package="Cizgi">
+      <name>initializeAutoLoader</name>
+      <full_name>\initializeAutoLoader</full_name>
+    </function>
+    <class final="false" abstract="false" namespace="global" line="33" package="Cizgi">
+      <extends>\RuntimeException</extends>
+      <name>Cizgi_Class_Not_Found_Exception</name>
+      <full_name>\Cizgi_Class_Not_Found_Exception</full_name>
+      <docblock line="30">
+        <description/>
+        <long-description/>
+        <tag line="30" name="package" description="Cizgi"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <critical line="2" code="50008">No short description for file autoload.php</critical>
+      <error line="10" code="50009">No DocBlock was found for function \__autoload()</error>
+      <error line="23" code="50009">No DocBlock was found for function \initializeAutoLoader()</error>
+      <critical line="30" code="50005">No short description for class \Cizgi_Class_Not_Found_Exception</critical>
+    </parse_markers>
+  </file>
+  <file path="Autoloader.php" hash="30d2b1b27fad6542ff4133aec26dba13" package="Default">
+    <class final="false" abstract="false" namespace="global" line="9" package="Cizgi">
+      <extends/>
+      <name>Cizgi_Autoloader</name>
+      <full_name>\Cizgi_Autoloader</full_name>
+      <docblock line="2">
+        <description>Autoloader sınıfı sınıfların otomatik olarak include edilmesini sağlar.</description>
+        <long-description/>
+        <tag line="2" name="author" description="Ömer ÖZKAN &lt;omer@ozkan.info&gt;"/>
+        <tag line="2" name="package" description="Cizgi"/>
+        <tag line="2" name="version" description="0.1"/>
+      </docblock>
+      <property final="false" static="true" visibility="private" line="10" namespace="global" package="Default">
+        <name>$parsedArray</name>
+        <default/>
+      </property>
+      <property final="false" static="true" visibility="private" line="11" namespace="global" package="Default">
+        <name>$specialPrefix</name>
+        <default/>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="12" package="Cizgi">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="26" package="Cizgi">
+        <name>getClassFile</name>
+        <full_name>getClassFile</full_name>
+        <docblock line="21">
+          <description>Bir sınıfın dosyasını bulur</description>
+          <long-description/>
+          <tag line="21" name="param" description="- Sınıf adı" type="string" variable="$className">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="21" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="26">
+          <name>$className</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="43" package="Cizgi">
+        <name>setParsedArray</name>
+        <full_name>setParsedArray</full_name>
+        <docblock line="39">
+          <description>Sınıf adını parçalar</description>
+          <long-description/>
+          <tag line="39" name="param" description="- Sınıf adı" type="string" variable="$className">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="43">
+          <name>$className</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="52" package="Cizgi">
+        <name>getApplicationPath</name>
+        <full_name>getApplicationPath</full_name>
+        <docblock line="48">
+          <description>Uygulama dizini</description>
+          <long-description/>
+          <tag line="48" name="return" description="uygulama yolu" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="60" package="Cizgi">
+        <name>getRootPath</name>
+        <full_name>getRootPath</full_name>
+        <docblock line="56">
+          <description>Kök dizin</description>
+          <long-description/>
+          <tag line="56" name="return" description="kök dizin" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="70" package="Cizgi">
+        <name>getFolderPath</name>
+        <full_name>getFolderPath</full_name>
+        <docblock line="65">
+          <description>Diziyi dosya yolu haline çevirir</description>
+          <long-description/>
+          <tag line="65" name="param" description="dizinin başlayacağı değer" type="integer" variable="$startPoint">
+            <type by_reference="false">integer</type>
+          </tag>
+          <tag line="65" name="return" description="dizin yolu" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$startPoint</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="88" package="Cizgi">
+        <name>getPhpFile</name>
+        <full_name>getPhpFile</full_name>
+        <docblock line="82">
+          <description>Özel sınıfların php dosyasını dönderir</description>
+          <long-description/>
+          <tag line="82" name="param" description="özel dizin" type="string" variable="$directory">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="82" name="param" description="parsedArray için başlangıç noktası" type="integer" variable="$startPoint">
+            <type by_reference="false">integer</type>
+          </tag>
+          <tag line="82" name="return" description="php dosya yolu" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="88">
+          <name>$directory</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="88">
+          <name>$startPoint</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="98" package="Cizgi">
+        <name>getApplicationClass</name>
+        <full_name>getApplicationClass</full_name>
+        <docblock line="94">
+          <description>Uygulama sınıflarının tam yolunu bulur</description>
+          <long-description/>
+          <tag line="94" name="return" description="php dosya yolu" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Autoloader.php</error>
+      <error line="10" code="50018">No DocBlock was found for property $parsedArray</error>
+      <error line="11" code="50018">No DocBlock was found for property $specialPrefix</error>
+      <error line="12" code="50010">No DocBlock was found for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="HTML.php" hash="b04fafd72fb5d659befa16e45113ff4b" package="Default">
+    <class final="false" abstract="false" namespace="global" line="8" package="Cizgi">
+      <extends/>
+      <name>Cizgi_HTML</name>
+      <full_name>\Cizgi_HTML</full_name>
+      <docblock line="2">
+        <description>HTML verilerini tutar</description>
+        <long-description/>
+        <tag line="2" name="author" description="Ömer Özkan&lt;omer@ozkan.info&gt;"/>
+        <tag line="2" name="package" description="Cizgi"/>
+        <tag line="2" name="version" description="0.1"/>
+      </docblock>
+      <property final="false" static="true" visibility="public" line="10" namespace="global" package="Default">
+        <name>$HTML5</name>
+        <default>"&lt;!doctype html&gt;"</default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file HTML.php</error>
+      <error line="10" code="50018">No DocBlock was found for property $HTML5</error>
+    </parse_markers>
+  </file>
+  <file path="View.php" hash="91858ce7cfbbb765dfeff1d13cc61f3a" package="Default">
+    <class final="false" abstract="false" namespace="global" line="8" package="Cizgi">
+      <extends>\Smarty</extends>
+      <name>Cizgi_View</name>
+      <full_name>\Cizgi_View</full_name>
+      <docblock line="2">
+        <description>Uygulamada kullanılan View sınıfı</description>
+        <long-description/>
+        <tag line="2" name="author" description="Ömer Özkan &lt;omer@ozkan.info&gt;"/>
+        <tag line="2" name="package" description="Cizgi"/>
+        <tag line="2" name="version" description="0.1"/>
+      </docblock>
+      <constant namespace="global" line="9" package="Cizgi">
+        <name>GET_PUBLIC_DIR</name>
+        <full_name>GET_PUBLIC_DIR</full_name>
+        <value>"public"</value>
+      </constant>
+      <constant namespace="global" line="10" package="Cizgi">
+        <name>VIEW_DIR</name>
+        <full_name>VIEW_DIR</full_name>
+        <value>"views"</value>
+      </constant>
+      <constant namespace="global" line="11" package="Cizgi">
+        <name>LAYOUT_DIR</name>
+        <full_name>LAYOUT_DIR</full_name>
+        <value>"layouts"</value>
+      </constant>
+      <constant namespace="global" line="12" package="Cizgi">
+        <name>SMARTY_CACHE</name>
+        <full_name>SMARTY_CACHE</full_name>
+        <value>'cache'</value>
+      </constant>
+      <constant namespace="global" line="13" package="Cizgi">
+        <name>SMARTY_COMPILE</name>
+        <full_name>SMARTY_COMPILE</full_name>
+        <value>"cache"</value>
+      </constant>
+      <constant namespace="global" line="14" package="Cizgi">
+        <name>VIEW_TEMPLATE_PREFIX</name>
+        <full_name>VIEW_TEMPLATE_PREFIX</full_name>
+        <value>"[v]"</value>
+      </constant>
+      <property final="false" static="false" visibility="protected" line="15" namespace="global" package="Default">
+        <name>$imagesDir</name>
+        <default>"images"</default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="16" namespace="global" package="Default">
+        <name>$scriptsDir</name>
+        <default>"js"</default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="17" namespace="global" package="Default">
+        <name>$stylesDir</name>
+        <default>"css"</default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="18" namespace="global" package="Default">
+        <name>$defaultStyle</name>
+        <default>"style.css"</default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="19" namespace="global" package="Default">
+        <name>$htmlData</name>
+        <default>array()</default>
+      </property>
+      <property final="false" static="false" visibility="protected" line="20" namespace="global" package="Default">
+        <name>$controller</name>
+        <default/>
+      </property>
+      <property final="false" static="false" visibility="protected" line="21" namespace="global" package="Default">
+        <name>$action</name>
+        <default/>
+      </property>
+      <property final="false" static="false" visibility="protected" line="22" namespace="global" package="Default">
+        <name>$layoutFile</name>
+        <default/>
+      </property>
+      <property final="false" static="false" visibility="protected" line="23" namespace="global" package="Default">
+        <name>$layoutEnabled</name>
+        <default/>
+      </property>
+      <property final="false" static="false" visibility="private" line="24" namespace="global" package="Default">
+        <name>$illegalVariables</name>
+        <default>array('html', 'cizgi')</default>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="33" package="Cizgi">
+        <name>GET_VIEW_EXTENTION</name>
+        <full_name>GET_VIEW_EXTENTION</full_name>
+        <docblock line="29">
+          <description>Configuration ile ayarlanan template dosyalarının varsayılan uzantısı</description>
+          <long-description/>
+          <tag line="29" name="return" description="dosya uzantısı" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="40" package="Cizgi">
+        <name>GET_PUBLIC_DIR</name>
+        <full_name>GET_PUBLIC_DIR</full_name>
+        <docblock line="36">
+          <description>uygulamanın çalıştığı public dizini</description>
+          <long-description/>
+          <tag line="36" name="return" description="public dizininin tam yolu" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="48" package="Cizgi">
+        <name>VIEW</name>
+        <full_name>VIEW</full_name>
+        <docblock line="43">
+          <description>Temalarda view'leri otomatik entegre etmek için yazılan smarty plugin fonksiyonu</description>
+          <long-description/>
+          <tag line="43" name="param" description="parametreler" type="array" variable="$params">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="43" name="param" description="smarty nesnesi" type="\Smarty" variable="$smarty">
+            <type by_reference="false">\Smarty</type>
+          </tag>
+        </docblock>
+        <argument line="48">
+          <name>$params</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$smarty</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="52" package="Cizgi">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="61" package="Cizgi">
+        <name>initPlugins</name>
+        <full_name>initPlugins</full_name>
+        <docblock line="58">
+          <description>Smarty için gerekli plugin tanımlamalarını yapar</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="68" package="Cizgi">
+        <name>initLayout</name>
+        <full_name>initLayout</full_name>
+        <docblock line="65">
+          <description>Uygulamada kullanılacak olan layout bilgilerini tanımlar</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="76" package="Cizgi">
+        <name>initDirs</name>
+        <full_name>initDirs</full_name>
+        <docblock line="73">
+          <description>smarty ile ilgili dizin tanımları yapar</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="93" package="Cizgi">
+        <name>getLink</name>
+        <full_name>getLink</full_name>
+        <docblock line="82">
+          <description>Girilen parametrelere göre bir url oluşturur</description>
+          <long-description/>
+          <tag line="82" name="param" description="" type="string" variable="$controller">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="82" name="param" description="" type="string" variable="$action">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="82" name="param" description="or array $parameters" type="string" variable="$parameters">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="82" name="param" description="uzantı" type="string" variable="$ext">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="82" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="93">
+          <name>$controller</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="93">
+          <name>$action</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="93">
+          <name>$parameters</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="93">
+          <name>$ext</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="119" package="Cizgi">
+        <name>addParameters</name>
+        <full_name>addParameters</full_name>
+        <docblock line="111">
+          <description>link değerine parametreleri ekler ve geri dönderir</description>
+          <long-description/>
+          <tag line="111" name="param" description="or array $parameters" type="string" variable="$parameters">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="111" name="param" description="" type="string" variable="$link">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="111" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="119">
+          <name>$parameters</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="119">
+          <name>$link</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="136" package="Cizgi">
+        <name>mergeParameters</name>
+        <full_name>mergeParameters</full_name>
+        <docblock line="129">
+          <description>Parametreleri url bağlantısına ekler</description>
+          <long-description/>
+          <tag line="129" name="param" description="" type="string" variable="$parameters">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="129" name="param" description="" type="string" variable="$link">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="129" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="136">
+          <name>$parameters</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="136">
+          <name>$link</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="144" package="Cizgi">
+        <name>getApplicationUrl</name>
+        <full_name>getApplicationUrl</full_name>
+        <docblock line="141">
+          <description>Uygulamanın URL'i</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="151" package="Cizgi">
+        <name>getApplicationDefaultExtention</name>
+        <full_name>getApplicationDefaultExtention</full_name>
+        <docblock line="148">
+          <description>Uygulamanın varsayılan uzantısı</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="154" package="Cizgi">
+        <name>getImagesDir</name>
+        <full_name>getImagesDir</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="157" package="Cizgi">
+        <name>getScriptsDir</name>
+        <full_name>getScriptsDir</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="160" package="Cizgi">
+        <name>getStylesDir</name>
+        <full_name>getStylesDir</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="163" package="Cizgi">
+        <name>getStyle</name>
+        <full_name>getStyle</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="171" package="Cizgi">
+        <name>setImagesDir</name>
+        <full_name>setImagesDir</full_name>
+        <docblock line="167">
+          <description/>
+          <long-description/>
+          <tag line="167" name="param" description="" type="string" variable="$imagesDir">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="171">
+          <name>$imagesDir</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="179" package="Cizgi">
+        <name>setScriptsDir</name>
+        <full_name>setScriptsDir</full_name>
+        <docblock line="175">
+          <description/>
+          <long-description/>
+          <tag line="175" name="param" description="" type="string" variable="$scriptsDir">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="179">
+          <name>$scriptsDir</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="187" package="Cizgi">
+        <name>setStylesDir</name>
+        <full_name>setStylesDir</full_name>
+        <docblock line="183">
+          <description/>
+          <long-description/>
+          <tag line="183" name="param" description="" type="string" variable="$stylesDir">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="187">
+          <name>$stylesDir</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="195" package="Cizgi">
+        <name>setStyle</name>
+        <full_name>setStyle</full_name>
+        <docblock line="191">
+          <description/>
+          <long-description/>
+          <tag line="191" name="param" description="" type="string" variable="$defaultStyle">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="195">
+          <name>$defaultStyle</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="205" package="Cizgi">
+        <name>getHTMLData</name>
+        <full_name>getHTMLData</full_name>
+        <docblock line="199">
+          <description>HTML için gerekli bilgileri elde etmek için kullanılır</description>
+          <long-description/>
+          <tag line="199" name="param" description="anahtar" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="199" name="return" description="parametre girilmezse dizi, parametre girilirse o html bilgisinin değeri" type="NULL|string|\array:">
+            <type by_reference="false">NULL</type>
+            <type by_reference="false">string</type>
+            <type by_reference="false">\array:</type>
+          </tag>
+        </docblock>
+        <argument line="205">
+          <name>$key</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="221" package="Cizgi">
+        <name>setHTMLData</name>
+        <full_name>setHTMLData</full_name>
+        <docblock line="216">
+          <description>HTML değişkenlerini atamak için kullanılır</description>
+          <long-description/>
+          <tag line="216" name="param" description="anahtar" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="216" name="param" description="değer" type="\multiple" variable="$value">
+            <type by_reference="false">\multiple</type>
+          </tag>
+        </docblock>
+        <argument line="221">
+          <name>$key</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="221">
+          <name>$value</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="230" package="Cizgi">
+        <name>setOutput</name>
+        <full_name>setOutput</full_name>
+        <docblock line="225">
+          <description>Derlenecek view dosyasını belirler</description>
+          <long-description/>
+          <tag line="225" name="param" description="action adı örneğin: 'index'" type="string" variable="$action">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="225" name="param" description="controller adı örneğin: 'error'" type="string" variable="$controller">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="230">
+          <name>$action</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="230">
+          <name>$controller</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="240" package="Cizgi">
+        <name>getViewFile</name>
+        <full_name>getViewFile</full_name>
+        <docblock line="236">
+          <description>Derlenecek olan view dosyasını dönderir</description>
+          <long-description/>
+          <tag line="236" name="return" description="view dosyası örneğin: 'index.phtml'" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="247" package="Cizgi">
+        <name>getViewDir</name>
+        <full_name>getViewDir</full_name>
+        <docblock line="243">
+          <description>View dosyalarının bulunduğu dizini dönderir</description>
+          <long-description/>
+          <tag line="243" name="return" description="dizin" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="254" package="Cizgi">
+        <name>renderView</name>
+        <full_name>renderView</full_name>
+        <docblock line="251">
+          <description>View dosyasını derleyip çıktı olarak üretir</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="261" package="Cizgi">
+        <name>renderLayout</name>
+        <full_name>renderLayout</full_name>
+        <docblock line="258">
+          <description>Layout'u derleyip çıktı olarak üretir</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="268" package="Cizgi">
+        <name>render</name>
+        <full_name>render</full_name>
+        <docblock line="265">
+          <description>Çıktı üretir</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="279" package="Cizgi">
+        <name>initSpecialVariables</name>
+        <full_name>initSpecialVariables</full_name>
+        <docblock line="276">
+          <description>Özel smarty değişkenlerin tanımlanmasını yapar</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="287" package="Cizgi">
+        <name>setLayout</name>
+        <full_name>setLayout</full_name>
+        <docblock line="283">
+          <description>Ana layout dosyasını değiştirir</description>
+          <long-description/>
+          <tag line="283" name="param" description="layout dosya adı örneğin: 'index.phtml'" type="string" variable="$layout">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="287">
+          <name>$layout</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="293" package="Cizgi">
+        <name>getLayout</name>
+        <full_name>getLayout</full_name>
+        <docblock line="290">
+          <description/>
+          <long-description/>
+          <tag line="290" name="return" description="Ana layout dosyası" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="300" package="Cizgi">
+        <name>enableLayout</name>
+        <full_name>enableLayout</full_name>
+        <docblock line="297">
+          <description>Layout kullanımını aktifleştirir</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="307" package="Cizgi">
+        <name>disableLayout</name>
+        <full_name>disableLayout</full_name>
+        <docblock line="304">
+          <description>Layout kullanımını pasifleştirir</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="315" package="Cizgi">
+        <name>__set</name>
+        <full_name>__set</full_name>
+        <docblock line="311">
+          <description>assign metodunu dolaylı olarak kullanır</description>
+          <long-description/>
+          <tag line="311" name="see" description="\Smarty::__set()" refers="\Smarty::__set()"/>
+        </docblock>
+        <argument line="315">
+          <name>$name</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="315">
+          <name>$value</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="324" package="Cizgi">
+        <name>assign</name>
+        <full_name>assign</full_name>
+        <docblock line="319">
+          <description>Smarty değişkenlerinin atamasını yapar özel değişkenler için atama yapılmasını engeller</description>
+          <long-description/>
+          <tag line="319" name="see" description="\Smarty_Internal_Data::assign()" refers="\Smarty_Internal_Data::assign()"/>
+          <tag line="319" name="throws" description="izin verilmeyen değişken tanımlaması" type="\Cizgi_View_IllegalVariableException">
+            <type by_reference="false">\Cizgi_View_IllegalVariableException</type>
+          </tag>
+        </docblock>
+        <argument line="324">
+          <name>$tpl_var</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="324">
+          <name>$value</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="324">
+          <name>$nocache</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="334" package="Cizgi">
+        <name>checkVariableName</name>
+        <full_name>checkVariableName</full_name>
+        <docblock line="329">
+          <description>Smarty değişkenlerinin geçerli olup olmadığını kontrol eder</description>
+          <long-description/>
+          <tag line="329" name="param" description="değişken adı" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="329" name="throws" description="izin verilmeyen değişken tanımlaması" type="\Cizgi_View_IllegalVariableException">
+            <type by_reference="false">\Cizgi_View_IllegalVariableException</type>
+          </tag>
+        </docblock>
+        <argument line="334">
+          <name>$name</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <class final="false" abstract="false" namespace="global" line="346" package="Cizgi">
+      <extends>\RuntimeException</extends>
+      <name>Cizgi_View_IllegalVariableException</name>
+      <full_name>\Cizgi_View_IllegalVariableException</full_name>
+      <docblock line="340">
+        <description>Hatalı smarty değişken tanımlarında fırlatılacak olan exception sınıfı</description>
+        <long-description/>
+        <tag line="340" name="author" description="Ömer Özkan &lt;omer@ozkan.info&gt;"/>
+        <tag line="340" name="package" description="Cizgi"/>
+        <tag line="340" name="version" description="0.1"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file View.php</error>
+      <error line="15" code="50018">No DocBlock was found for property $imagesDir</error>
+      <error line="16" code="50018">No DocBlock was found for property $scriptsDir</error>
+      <error line="17" code="50018">No DocBlock was found for property $stylesDir</error>
+      <error line="18" code="50018">No DocBlock was found for property $defaultStyle</error>
+      <error line="19" code="50018">No DocBlock was found for property $htmlData</error>
+      <error line="20" code="50018">No DocBlock was found for property $controller</error>
+      <error line="21" code="50018">No DocBlock was found for property $action</error>
+      <error line="22" code="50018">No DocBlock was found for property $layoutFile</error>
+      <error line="23" code="50018">No DocBlock was found for property $layoutEnabled</error>
+      <error line="24" code="50018">No DocBlock was found for property $illegalVariables</error>
+      <error line="52" code="50010">No DocBlock was found for method __construct()</error>
+      <error line="154" code="50010">No DocBlock was found for method getImagesDir()</error>
+      <error line="157" code="50010">No DocBlock was found for method getScriptsDir()</error>
+      <error line="160" code="50010">No DocBlock was found for method getStylesDir()</error>
+      <error line="163" code="50010">No DocBlock was found for method getStyle()</error>
+      <error line="167" code="50012">No short description for method setImagesDir()</error>
+      <error line="175" code="50012">No short description for method setScriptsDir()</error>
+      <error line="183" code="50012">No short description for method setStylesDir()</error>
+      <error line="191" code="50012">No short description for method setStyle()</error>
+      <error line="290" code="50012">No short description for method getLayout()</error>
+      <error line="311" code="50015">Argument $name is missing from the Docblock of __set()</error>
+      <error line="311" code="50015">Argument $value is missing from the Docblock of __set()</error>
+      <error line="319" code="50015">Argument $tpl_var is missing from the Docblock of assign()</error>
+      <error line="319" code="50015">Argument $value is missing from the Docblock of assign()</error>
+      <error line="319" code="50015">Argument $nocache is missing from the Docblock of assign()</error>
+    </parse_markers>
+  </file>
+  <file path="Controller.php" hash="5b50b7ac8b654559267f92b17249573a" package="Default">
+    <class final="false" abstract="true" namespace="global" line="8" package="Cizgi">
+      <extends/>
+      <name>Cizgi_Controller</name>
+      <full_name>\Cizgi_Controller</full_name>
+      <docblock line="2">
+        <description>Uygulamada kullanılacak olan bütün Controller nesnelerinin atası</description>
+        <long-description/>
+        <tag line="2" name="author" description="Ömer Özkan &lt;omer@ozkan.info&gt;"/>
+        <tag line="2" name="package" description="Cizgi"/>
+        <tag line="2" name="version" description="0.1"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="10" namespace="global" package="Default">
+        <name>$view</name>
+        <default/>
+      </property>
+      <property final="false" static="false" visibility="private" line="11" namespace="global" package="Default">
+        <name>$bootstrap</name>
+        <default/>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="17" package="Cizgi">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="13">
+          <description/>
+          <long-description/>
+          <tag line="13" name="param" description="" type="\Cizgi_Bootstrap" variable="$bootstrap">
+            <type by_reference="false">\Cizgi_Bootstrap</type>
+          </tag>
+          <tag line="13" name="param" description="" type="\Cizgi_View" variable="$view">
+            <type by_reference="false">\Cizgi_View</type>
+          </tag>
+        </docblock>
+        <argument line="17">
+          <name>$bootstrap</name>
+          <default/>
+          <type>\Cizgi_Bootstrap</type>
+        </argument>
+        <argument line="17">
+          <name>$view</name>
+          <default/>
+          <type>\Cizgi_View</type>
+        </argument>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="global" line="26" package="Cizgi">
+        <name>init</name>
+        <full_name>init</full_name>
+        <docblock line="23">
+          <description>init metodu her action metodundan önce çağırılır.</description>
+          <long-description>&lt;p&gt;Genel amaçlı kullanılabilir.&lt;/p&gt;</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="global" line="31" package="Cizgi">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+        <docblock line="28">
+          <description>Her controller sınıfının index adlı action'u olmak zorundadır</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="37" package="Cizgi">
+        <name>setView</name>
+        <full_name>setView</full_name>
+        <docblock line="33">
+          <description>View nesnesi</description>
+          <long-description/>
+          <tag line="33" name="param" description="" type="\Cizgi_View" variable="$view">
+            <type by_reference="false">\Cizgi_View</type>
+          </tag>
+        </docblock>
+        <argument line="37">
+          <name>$view</name>
+          <default/>
+          <type>\Cizgi_View</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="45" package="Cizgi">
+        <name>getView</name>
+        <full_name>getView</full_name>
+        <docblock line="41">
+          <description>View nesnesi</description>
+          <long-description/>
+          <tag line="41" name="return" description="" type="\Cizgi_View">
+            <type by_reference="false">\Cizgi_View</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="54" package="Cizgi">
+        <name>setBootstrap</name>
+        <full_name>setBootstrap</full_name>
+        <docblock line="50">
+          <description>Bootstrap nesnesi</description>
+          <long-description/>
+          <tag line="50" name="param" description="" type="\Cizgi_Bootstrap" variable="$bootstrap">
+            <type by_reference="false">\Cizgi_Bootstrap</type>
+          </tag>
+        </docblock>
+        <argument line="54">
+          <name>$bootstrap</name>
+          <default/>
+          <type>\Cizgi_Bootstrap</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="63" package="Cizgi">
+        <name>getBootstrap</name>
+        <full_name>getBootstrap</full_name>
+        <docblock line="59">
+          <description>Bootstrap nesnesi</description>
+          <long-description/>
+          <tag line="59" name="return" description="" type="\Cizgi_Bootstrap">
+            <type by_reference="false">\Cizgi_Bootstrap</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="74" package="Cizgi">
+        <name>equals</name>
+        <full_name>equals</full_name>
+        <docblock line="68">
+          <description>2 controller nesnesinin aynı olup olmadığını belirler
+Test sınıfları için yazılmıştır.</description>
+          <long-description/>
+          <tag line="68" name="param" description="" type="\Cizgi_Controller" variable="$that">
+            <type by_reference="false">\Cizgi_Controller</type>
+          </tag>
+          <tag line="68" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="74">
+          <name>$that</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="85" package="Cizgi">
+        <name>redirect</name>
+        <full_name>redirect</full_name>
+        <docblock line="79">
+          <description>Başka bir controller ve actiona yönlendirmesini sağlar</description>
+          <long-description/>
+          <tag line="79" name="param" description="" type="string" variable="$controller">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="79" name="param" description="" type="string" variable="$action">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="79" name="param" description="" type="array" variable="$parameters">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="85">
+          <name>$controller</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="85">
+          <name>$action</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="85">
+          <name>$parameters</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Controller.php</error>
+      <error line="10" code="50018">No DocBlock was found for property $view</error>
+      <error line="11" code="50018">No DocBlock was found for property $bootstrap</error>
+      <error line="13" code="50012">No short description for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="Bootstrap.php" hash="fec3f47913b01ce1186f5fd77d1499ac" package="Default">
+    <class final="false" abstract="true" namespace="global" line="9" package="Cizgi">
+      <extends/>
+      <name>Cizgi_Bootstrap</name>
+      <full_name>\Cizgi_Bootstrap</full_name>
+      <docblock line="2">
+        <description>URLDispatcher nesnesi kullanarak controller ve view nesnelerini oluşturur
+action metodlarını çağırır</description>
+        <long-description/>
+        <tag line="2" name="author" description="Ömer Özkan &lt;omer@ozkan.info&gt;"/>
+        <tag line="2" name="package" description="Cizgi"/>
+        <tag line="2" name="version" description="0.1"/>
+      </docblock>
+      <constant namespace="global" line="17" package="Cizgi">
+        <name>CONTROLLER_PREFIX</name>
+        <full_name>CONTROLLER_PREFIX</full_name>
+        <value>"Controller"</value>
+      </constant>
+      <constant namespace="global" line="18" package="Cizgi">
+        <name>ACTION_PREFIX</name>
+        <full_name>ACTION_PREFIX</full_name>
+        <value>"Action"</value>
+      </constant>
+      <property final="false" static="false" visibility="private" line="11" namespace="global" package="Default">
+        <name>$urlDispatcher</name>
+        <default/>
+      </property>
+      <property final="false" static="false" visibility="private" line="12" namespace="global" package="Default">
+        <name>$controller</name>
+        <default/>
+      </property>
+      <property final="false" static="false" visibility="private" line="13" namespace="global" package="Default">
+        <name>$action</name>
+        <default/>
+      </property>
+      <property final="false" static="false" visibility="private" line="14" namespace="global" package="Default">
+        <name>$view</name>
+        <default/>
+      </property>
+      <property final="false" static="false" visibility="private" line="15" namespace="global" package="Default">
+        <name>$developerMode</name>
+        <default>false</default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="24" package="Cizgi">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="20">
+          <description/>
+          <long-description/>
+          <tag line="20" name="param" description="gelen isteği ayrıştırması için gerekli nesne" type="\Cizgi_URLDispatcher" variable="$urlDispatcher">
+            <type by_reference="false">\Cizgi_URLDispatcher</type>
+          </tag>
+        </docblock>
+        <argument line="24">
+          <name>$urlDispatcher</name>
+          <default/>
+          <type>\Cizgi_URLDispatcher</type>
+        </argument>
+        <argument line="24">
+          <name>$view</name>
+          <default/>
+          <type>\Cizgi_View</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="35" package="Cizgi">
+        <name>run</name>
+        <full_name>run</full_name>
+        <docblock line="30">
+          <description>Uygulamayı başlatarak gelen isteğe cevap verir.</description>
+          <long-description/>
+          <tag line="30" name="param" description="- istek" type="string" variable="$url">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="30" name="throws" description="" type="\Cizgi_Bootstrap_Exception">
+            <type by_reference="false">\Cizgi_Bootstrap_Exception</type>
+          </tag>
+        </docblock>
+        <argument line="35">
+          <name>$url</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="56" package="Cizgi">
+        <name>invoke</name>
+        <full_name>invoke</full_name>
+        <docblock line="50">
+          <description>Gelen isteğe göre gerekli controller ve action işlemlerini yapar</description>
+          <long-description/>
+          <tag line="50" name="param" description="" type="\Cizgi_Controller" variable="$controller">
+            <type by_reference="false">\Cizgi_Controller</type>
+          </tag>
+          <tag line="50" name="param" description="" type="string" variable="$action">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="50" name="param" description="" type="array" variable="$parameters">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="56">
+          <name>$controller</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$action</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$parameters</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="67" package="Cizgi">
+        <name>invokeError</name>
+        <full_name>invokeError</full_name>
+        <docblock line="64">
+          <description>Hata Controller nesnesini ve action metodunu çağırır</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="76" package="Cizgi">
+        <name>invokeActionMethod</name>
+        <full_name>invokeActionMethod</full_name>
+        <docblock line="72">
+          <description>actionMethodunu parametrelerle çağırır</description>
+          <long-description/>
+          <tag line="72" name="param" description="" type="array" variable="$parameters">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="76">
+          <name>$parameters</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="89" package="Cizgi">
+        <name>initController</name>
+        <full_name>initController</full_name>
+        <docblock line="85">
+          <description>Controller nesnesini üretir</description>
+          <long-description/>
+          <tag line="85" name="param" description="Controller sınıfı adı" type="string" variable="$controller">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="89">
+          <name>$controller</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="101" package="Cizgi">
+        <name>initAction</name>
+        <full_name>initAction</full_name>
+        <docblock line="97">
+          <description>Action metodun tam adını belirler</description>
+          <long-description/>
+          <tag line="97" name="param" description="actionMetod adı" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="101">
+          <name>$name</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="116" package="Cizgi">
+        <name>renderView</name>
+        <full_name>renderView</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="128" package="Cizgi">
+        <name>checkMethod</name>
+        <full_name>checkMethod</full_name>
+        <docblock line="123">
+          <description>Methodun tanımlı olup olmadığını kontrol eder</description>
+          <long-description/>
+          <tag line="123" name="param" description="" type="string" variable="$methodName">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="123" name="throws" description="Action metodu bulunamadı" type="\Cizgi_Bootstrap_Action_Not_Found">
+            <type by_reference="false">\Cizgi_Bootstrap_Action_Not_Found</type>
+          </tag>
+        </docblock>
+        <argument line="128">
+          <name>$methodName</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="137" package="Cizgi">
+        <name>getController</name>
+        <full_name>getController</full_name>
+        <docblock line="133">
+          <description>controller nesnesini dönderir</description>
+          <long-description/>
+          <tag line="133" name="return" description="" type="\Cizgi_Controller">
+            <type by_reference="false">\Cizgi_Controller</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="147" package="Cizgi">
+        <name>checkClass</name>
+        <full_name>checkClass</full_name>
+        <docblock line="142">
+          <description>Controller sınıfının tanımlanıp tanımlanmadığını kontrol eder</description>
+          <long-description/>
+          <tag line="142" name="param" description="" type="string" variable="$className">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="142" name="throws" description="Controller bulunamadı" type="\Cizgi_Bootstrap_Controller_Not_Found">
+            <type by_reference="false">\Cizgi_Bootstrap_Controller_Not_Found</type>
+          </tag>
+        </docblock>
+        <argument line="147">
+          <name>$className</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="157" package="Cizgi">
+        <name>getControllerClassName</name>
+        <full_name>getControllerClassName</full_name>
+        <docblock line="152">
+          <description>Controller'ın sınıf adını tam olarak dönderir.</description>
+          <long-description/>
+          <tag line="152" name="param" description="controller adı" type="string" variable="$controller">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="152" name="return" description="controller sınıfının tam adı" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="157">
+          <name>$controller</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="169" package="Cizgi">
+        <name>getView</name>
+        <full_name>getView</full_name>
+        <docblock line="165">
+          <description>View nesnesini dönderir</description>
+          <long-description/>
+          <tag line="165" name="return" description="" type="\Cizgi_View">
+            <type by_reference="false">\Cizgi_View</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="177" package="Cizgi">
+        <name>getAction</name>
+        <full_name>getAction</full_name>
+        <docblock line="173">
+          <description>Action metodun tam adını dönderir</description>
+          <long-description/>
+          <tag line="173" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="186" package="Cizgi">
+        <name>getErrorController</name>
+        <full_name>getErrorController</full_name>
+        <docblock line="182">
+          <description>Configuration sınıfında tanımlı hata controller'ın adını dönderir</description>
+          <long-description/>
+          <tag line="182" name="return" description="controller adı" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="197" package="Cizgi">
+        <name>redirect</name>
+        <full_name>redirect</full_name>
+        <docblock line="191">
+          <description>Controller sınıflarının yönlendirme yapabilmesini sağlar</description>
+          <long-description/>
+          <tag line="191" name="param" description="" type="string" variable="$controller">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="191" name="param" description="" type="string" variable="$action">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="191" name="param" description="" type="array" variable="$parameters">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="197">
+          <name>$controller</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="197">
+          <name>$action</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="197">
+          <name>$parameters</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="208" package="Cizgi">
+        <name>setDeveloperMode</name>
+        <full_name>setDeveloperMode</full_name>
+        <docblock line="204">
+          <description>Geliştirici modunu aktif eder veya devredışı bırakır.</description>
+          <long-description/>
+          <tag line="204" name="param" description="true veya boş ise aktif, false ise devredışı" type="boolean" variable="$on">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="208">
+          <name>$on</name>
+          <default>true</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <class final="false" abstract="false" namespace="global" line="220" package="Cizgi">
+      <extends>\RuntimeException</extends>
+      <name>Cizgi_Bootstrap_Exception</name>
+      <full_name>\Cizgi_Bootstrap_Exception</full_name>
+      <docblock line="214">
+        <description>Bootstrap sınıfında oluşan exception</description>
+        <long-description/>
+        <tag line="214" name="author" description="Ömer Özkan &lt;omer@ozkan.info&gt;"/>
+        <tag line="214" name="package" description="Cizgi"/>
+        <tag line="214" name="version" description="0.1"/>
+      </docblock>
+    </class>
+    <class final="false" abstract="false" namespace="global" line="228" package="Cizgi">
+      <extends>\Cizgi_Bootstrap_Exception</extends>
+      <name>Cizgi_Bootstrap_Controller_Not_Found</name>
+      <full_name>\Cizgi_Bootstrap_Controller_Not_Found</full_name>
+      <docblock line="222">
+        <description>Controller sınıfı bulunamadığında fırlatılır</description>
+        <long-description/>
+        <tag line="222" name="author" description="Ömer Özkan &lt;omer@ozkan.info&gt;"/>
+        <tag line="222" name="package" description="Cizgi"/>
+        <tag line="222" name="version" description="0.1"/>
+      </docblock>
+    </class>
+    <class final="false" abstract="false" namespace="global" line="236" package="Cizgi">
+      <extends>\Cizgi_Bootstrap_Exception</extends>
+      <name>Cizgi_Bootstrap_Action_Not_Found</name>
+      <full_name>\Cizgi_Bootstrap_Action_Not_Found</full_name>
+      <docblock line="230">
+        <description>action metod bulunamadığında fırlatılır</description>
+        <long-description/>
+        <tag line="230" name="author" description="Ömer Özkan &lt;omer@ozkan.info&gt;"/>
+        <tag line="230" name="package" description="Cizgi"/>
+        <tag line="230" name="version" description="0.1"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Bootstrap.php</error>
+      <error line="11" code="50018">No DocBlock was found for property $urlDispatcher</error>
+      <error line="12" code="50018">No DocBlock was found for property $controller</error>
+      <error line="13" code="50018">No DocBlock was found for property $action</error>
+      <error line="14" code="50018">No DocBlock was found for property $view</error>
+      <error line="15" code="50018">No DocBlock was found for property $developerMode</error>
+      <error line="20" code="50012">No short description for method __construct()</error>
+      <error line="20" code="50015">Argument $view is missing from the Docblock of __construct()</error>
+      <error line="116" code="50010">No DocBlock was found for method renderView()</error>
+    </parse_markers>
+  </file>
+  <package name="Cizgi" full_name="Cizgi"/>
+  <package name="Default" full_name="Default"/>
+  <namespace name="global" full_name="global"/>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>
