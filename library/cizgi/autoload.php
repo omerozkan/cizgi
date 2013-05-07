@@ -1,4 +1,8 @@
 <?php
+/**
+ * @package Cizgi
+ * @version 0.1
+ */
 require ROOT_PATH."/library/cizgi/Autoloader.php";
 spl_autoload_register("__autoload");
 $AUTOLOADER = null;
@@ -23,5 +27,7 @@ function initializeAutoLoader() {
 		$AUTOLOADER = new Cizgi_Autoloader();
 	}
 }
-
+/**
+ * @package Cizgi
+ */
 class Cizgi_Class_Not_Found_Exception extends RuntimeException{}

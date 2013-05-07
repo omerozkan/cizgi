@@ -2,6 +2,8 @@
 /**
  * Uygulamada kullanılan View sınıfı
  * @author Ömer Özkan <omer@ozkan.info>
+ * @package Cizgi
+ * @version 0.1
  */
 class Cizgi_View extends Smarty {
 	const GET_PUBLIC_DIR = "public";
@@ -338,7 +340,8 @@ class Cizgi_View extends Smarty {
 /**
  * Hatalı smarty değişken tanımlarında fırlatılacak olan exception sınıfı
  * @author Ömer Özkan <omer@ozkan.info>
- *
+ * @package Cizgi
+ * @version 0.1
  */
 class Cizgi_View_IllegalVariableException extends RuntimeException {
 }

@@ -2,6 +2,8 @@
 /**
  * Gelen isteği controller, action ve parametrelere böler
  * @author Ömer ÖZKAN <omer@ozkan.info>
+ * @package Cizgi
+ * @version 0.1
  */
 class Cizgi_URLDispatcher
 {

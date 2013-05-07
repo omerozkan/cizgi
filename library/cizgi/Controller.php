@@ -2,7 +2,8 @@
 /**
  * Uygulamada kullanılacak olan bütün Controller nesnelerinin atası
  * @author Ömer Özkan <omer@ozkan.info>
- *
+ * @package Cizgi
+ * @version 0.1
  */
 abstract class Cizgi_Controller
 {

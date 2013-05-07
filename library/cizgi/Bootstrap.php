@@ -3,6 +3,8 @@
  * URLDispatcher nesnesi kullanarak controller ve view nesnelerini oluşturur
  * action metodlarını çağırır
  * @author Ömer Özkan <omer@ozkan.info>
+ * @package Cizgi
+ * @version 0.1
  */
 abstract class Cizgi_Bootstrap
 {
@@ -209,10 +211,27 @@ abstract class Cizgi_Bootstrap
 	}
 	
 }
-
+/**
+ * Bootstrap sınıfında oluşan exception
+ * @author Ömer Özkan <omer@ozkan.info>
+ * @package Cizgi
+ * @version 0.1
+ */
 class Cizgi_Bootstrap_Exception extends RuntimeException
 {}
+/**
+ * Controller sınıfı bulunamadığında fırlatılır
+ * @author Ömer Özkan <omer@ozkan.info>
+ * @package Cizgi
+ * @version 0.1
+ */
 class Cizgi_Bootstrap_Controller_Not_Found extends Cizgi_Bootstrap_Exception 
 {}
+/**
+ * action metod bulunamadığında fırlatılır
+ * @author Ömer Özkan <omer@ozkan.info>
+ * @package Cizgi
+ * @version 0.1
+ */
 class Cizgi_Bootstrap_Action_Not_Found extends Cizgi_Bootstrap_Exception
 {}

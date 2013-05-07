@@ -3,6 +3,8 @@
  * Autoloader sınıfı sınıfların otomatik olarak include edilmesini sağlar.
  *
  * @author Ömer ÖZKAN <omer@ozkan.info>
+ * @package Cizgi
+ * @version 0.1
  */
 class Cizgi_Autoloader {
     private static $parsedArray;
